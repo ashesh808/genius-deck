@@ -1,0 +1,10 @@
+flask == 3.0.0
+openai == 1.2.3
+yt-dlp == 2023.10.13
+webvtt-py == 0.4.6
+speechrecognition == 3.10.0
+pydub == 0.25.1
+ffmpeg == 1.4
+jsonify == 0.5
+python-dotenv == 1.0.0
+PyPDF2 == 3.0.1
