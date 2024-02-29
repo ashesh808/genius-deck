@@ -60,3 +60,6 @@ def get_flashcard_data():
     flashcard_viewer = FlashCardViewer(flashcard_path=flashcard_data_path, ID=flashcard_id)
     flashcard_data = flashcard_viewer.ReadJson()
     return flashcard_data
+
+if __name__ == '__main__':
+    app.run(debug=True)
