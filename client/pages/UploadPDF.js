@@ -24,7 +24,7 @@ export default function UploadPDF () {
       formData.append('file', uploadedFile);
 
       // Upload data to server
-      const uploadResponse = await fetch('http://localhost:5000/uploadpdf', {
+      const uploadResponse = await fetch('http://localhost:5000/upload', {
         method: 'POST',
         body: formData,
       });
