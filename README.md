@@ -89,8 +89,6 @@ The GeniusDeck API allows users to upload PDF documents, send YouTube video link
 ### Note
 - Flashcards are generated based on the PDF data specified by the `id` and `dataformat` parameters.
 
-Certainly! Here's the updated documentation for the `/getflashcarddata` endpoint with the example data:
-
 ## Get Flashcard Data
 
 **Endpoint:** `/getflashcarddata`  
