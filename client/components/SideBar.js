@@ -31,6 +31,7 @@ const sideBarData = [
 ];
 
 const websiteName = "GeniusDeck"
+const footerText = "Made for MICS 2024"
 
 /**
  * Acts as a way for users to brose the site. Intended to always be displayed on the left
@@ -64,7 +65,7 @@ export default function SideBar() {
 
       <Box style={{backgroundColor: "#808080", padding: "0.5rem"}}>
         <Typography align="center" variant="subtitle1" style={{fontSize: "0.8rem"}}>
-            Made for the SCSU Fall 2023 Hackathon
+            {footerText}
         </Typography>
       </Box>
     </Box>
