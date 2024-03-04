@@ -5,6 +5,5 @@ backend/modules/data/flashcard-data/*
 backend/modules/data/rawgpt-data/*
 backend/modules/data/youtubeparsed-data/*
 backend/modules/data/youtuberaw-data/*
-aifuckery.py
 .gitignore
 ProjectReport.pdf
