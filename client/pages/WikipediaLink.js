@@ -2,13 +2,13 @@ import React from "react";
 import { useRouter } from 'next/router'
 import { Box, TextField, InputAdornment, Button } from "@mui/material";
 import PageHeader from '../components/PageHeader'
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import BackupIcon from '@mui/icons-material/Backup';
 import WaitModal from "@/components/WaitModal";
 
-const regexPattern = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(-nocookie)?\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|live\/|v\/)?)([\w\-]+)(\S+)?$/
+const regexPattern = /(?<![@\w])(((http|https)(:\/\/))?([\w\-_]{2,})(([\.])([\w\-_]*)){1,})([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])/
 
-export default function YouTubeLink () {
+export default function WikipediaLink () {
   const router = useRouter()
   const [waiting, setWaiting] = React.useState(false)
   const [urlText, setUrlText] = React.useState("")
@@ -54,11 +54,11 @@ export default function YouTubeLink () {
   
   return (
     <Box>
-      <PageHeader title="YouTube Link" />
+      <PageHeader title="Wikipedia Link" />
       <Box style={{display: "flex", alignItems: "center", flexDirection: "column", gap: "1rem"}}>
         <TextField
-          id="youtubelink"
-          label="YouTube Link"
+          id="wikipedialink"
+          label="Wikipedia Link"
           variant="outlined"
           fullWidth
           autoFocus
@@ -67,7 +67,7 @@ export default function YouTubeLink () {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <YouTubeIcon />
+                <MenuBookIcon />
               </InputAdornment>
             ),
           }}

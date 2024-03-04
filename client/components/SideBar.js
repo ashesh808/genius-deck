@@ -2,7 +2,9 @@ import React from 'react';
 import { Box, Paper, Grid, Button, Typography } from '@mui/material';
 import Link from 'next/link';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 import SearchIcon from '@mui/icons-material/Search';
 import SchoolTwoToneIcon from '@mui/icons-material/SchoolTwoTone';
@@ -14,9 +16,19 @@ const sideBarData = [
     url: '/UploadPDF',
   },
   {
+    title: 'Upload PPT',
+    icon: CoPresentIcon,
+    url: '/UploadPPT',
+  },
+  {
     title: 'YouTube Link',
     icon: YouTubeIcon,
     url: '/YouTubeLink',
+  },
+  {
+    title: 'Wikipedia Link',
+    icon: MenuBookIcon,
+    url: '/WikipediaLink',
   },
   {
     title: 'Card Data',
