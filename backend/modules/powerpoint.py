@@ -51,7 +51,7 @@ def PptToText(PPTX_Path, Flag=bool):
                 Image = io.BytesIO(Image_bytes)
                 text = ListToString(Caption(Image))
                 text.strip('['']')
-                text = txt + text + '/n'
+                text = txt + text + '\n'
                 f.write(text)
                 
 
