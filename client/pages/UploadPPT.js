@@ -63,7 +63,7 @@ export default function UploadPPT () {
           onError={()=>alert ("ERROR")}
           acceptedTypes={filetypes}
           title="Upload a Powerpoint"
-          subtitle="Drag a PPT file here or click to browse"
+          subtitle="Drag a PPT/PPTX file here or click to browse"
         />
       </Box>
 
