@@ -14,14 +14,3 @@ class ChatGPT_API:
             temperature = 0,
         )
         return response.choices[0].message["content"]
-
-if __name__ == "__main__":
-    api_key = ''
-
-    chatbot = ChatGPT_API(api_key)
-
-    prompt = "Who won the Grammy for best rock album in 2020?"
-
-    response = chatbot.get_completion(prompt)
-
-    print(response)

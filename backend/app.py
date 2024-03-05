@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from modules.pdf_uploader import PDFUploader
+from modules.file_uploader import FileUploader
 from modules.generate_flashcard import FlashCardGenerator
 from modules.flashcard_viewer import FlashCardViewer
 from modules.youtube_parser import YoutubeParser
@@ -13,23 +13,23 @@ CORS(app)
 
 #This is the folder where pdf will be downloaded to 
 dirName = os.path.dirname(__file__)
-UPLOAD_FOLDER = os.path.join(dirName, 'modules', 'data', 'pdfdocument')
-yt_rawdata_path = os.path.join(dirName, 'modules', 'data', 'youtuberawdata')
-yt_parseddata_path = os.path.join(dirName, 'modules', 'data', 'youtubeparseddata')
-flashcard_data_path = os.path.join(dirName, 'modules', 'data', 'flashcarddata')
+UPLOAD_FOLDER = os.path.join(dirName, 'modules', 'data', 'upload-data')
+yt_rawdata_path = os.path.join(dirName, 'modules', 'data', 'youtuberaw-data')
+yt_parseddata_path = os.path.join(dirName, 'modules', 'data', 'youtubeparsed-data')
+flashcard_data_path = os.path.join(dirName, 'modules', 'data', 'flashcard-data')
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-pdf_uploader = PDFUploader(app)
+file_uploader = FileUploader(app)
 
 
-@app.route('/uploadpdf', methods=['POST'])
-def upload_pdf():
+@app.route('/upload', methods=['POST'])
+def upload():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'})
     file = request.files['file']
     if file.filename == '':
         return jsonify({'error': 'No selected file'})
-    result = pdf_uploader.upload_pdf(file)
+    result = file_uploader.upload(file)
     return jsonify(result)
 
 @app.route('/sendyoutubeurl', methods=['POST'])

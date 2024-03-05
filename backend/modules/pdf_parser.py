@@ -23,15 +23,3 @@ class PdfParser:
         # Join the lines back together with spaces
         cleaned_text = ' '.join(lines)
         return cleaned_text
-
-# if __name__ == "__main__":
-#     pdf_file_name = "test"
-#     pdf_parser = PdfParser(file_name=pdf_file_name)
-
-#     try:
-#         pdf_text = pdf_parser.pdf_to_text()
-#         print(f"PDF text:\n{pdf_text}")
-#     except FileNotFoundError as e:
-#         print(f"Error: {e}")
-#     except Exception as e:
-#         print(f"An unexpected error occurred: {str(e)}")

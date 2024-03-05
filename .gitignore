@@ -1,2 +1,7 @@
 /backend/modules/__pycache__
 .env
+backend/modules/data/upload-data/*
+backend/modules/data/flashcard-data/*
+backend/modules/data/rawgpt-data/*
+backend/modules/data/youtubeparsed-data/*
+backend/modules/data/youtuberaw-data/*
