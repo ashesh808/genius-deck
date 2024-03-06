@@ -3,7 +3,7 @@ from flask_cors import CORS
 from modules.file_uploader import FileUploader
 from modules.generate_flashcard import FlashCardGenerator
 from modules.flashcard_viewer import FlashCardViewer
-from modules.youtube_parser import YoutubeParser
+from modules.YouTubeTrancsribe import YoutubeTranscribe
 import uuid
 import os
 
@@ -36,9 +36,10 @@ def upload():
 def send_youtube_url():
     youtube_url = request.args.get('url')
     unique_id = str(uuid.uuid4())
-    youtube_parser = YoutubeParser(yt_rawdata_path=yt_rawdata_path, yt_parseddata_path=yt_parseddata_path, file=unique_id, Url=youtube_url)
+    Skip_image = request.args.get('Skip_Image') #Missing flag
+    youtube_parser = YoutubeTranscribe(yt_rawdata_path=yt_rawdata_path, yt_parseddata_path=yt_parseddata_path, file=unique_id, Url=youtube_url, Flag=Skip_image)
     youtube_parser.Download()
-    youtube_parser.ReadCaptions()
+    youtube_parser.Read_Captions()
     return jsonify({'id': unique_id})
 
 @app.route('/generatecards', methods=['GET'])
