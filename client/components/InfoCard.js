@@ -24,9 +24,9 @@ export default function InfoCard({
     answerText,
     showAnswer,
     setShowAnswer,
-    showExplaination,
-    setShowExplaination,
-    explaination = NULL,
+    showExplanation,
+    setShowExplanation,
+    explanation = NULL,
 }) {
     const [rotateAnimation, setRotateAnimation] = React.useState(false); //true is 180deg, false is 0deg
 
@@ -52,8 +52,8 @@ export default function InfoCard({
                 onClick={() => {
                     setShowAnswer(!showAnswer);
                     setRotateAnimation(!rotateAnimation); //flip card
-                    if (showExplaination) {
-                        setShowExplaination(false);
+                    if (showExplanation) {
+                        setShowExplanation(false);
                     }
                 }}
             >
@@ -64,15 +64,15 @@ export default function InfoCard({
                             : "rotateY(0deg)",
                     }}
                 >
-                    {showAnswer && explaination && (
+                    {showAnswer && explanation && (
                         <IconButton
                             onClick={(e) => {
                                 e.stopPropagation(); //prevent card from flipping when clicking the info button
-                                setShowExplaination(!showExplaination);
-                                console.log(showExplaination);
+                                setShowExplanation(!showExplanation);
+                                console.log(showExplanation);
                             }}
                         >
-                            {showExplaination ? ( //if showExplaination is true, show the back arrow
+                            {showExplanation ? ( //if showExplaination is true, show the back arrow
                                 <ArrowBackIcon />
                             ) : (
                                 <InfoIcon />
@@ -81,7 +81,7 @@ export default function InfoCard({
                     )}
                     <Typography align="center" variant="h4">
                         {showAnswer
-                            ? showExplaination
+                            ? showExplanation
                                 ? "Explaination"
                                 : "Answer"
                             : "Question"}{" "}
@@ -89,8 +89,8 @@ export default function InfoCard({
                     </Typography>
                     <Typography align="center" variant="body1">
                         {showAnswer
-                            ? showExplaination
-                                ? explaination
+                            ? showExplanation
+                                ? explanation
                                 : answerText
                             : questionText}
                     </Typography>

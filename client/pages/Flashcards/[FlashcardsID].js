@@ -22,7 +22,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 //     {
 //         question: "What is the capital of France?",
 //         answer: "Paris",
-//         explaination: "Paris is the capital of France",
+//         explanation: "Paris is the capital of France",
 //     },
 //     {
 //         question: "What is the capital of Spain?",
@@ -31,7 +31,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 //     {
 //         question: "What is the capital of Germany?",
 //         answer: "Berlin",
-//         explaination: "Berlin is the capital of Germany",
+//         explanation: "Berlin is the capital of Germany",
 //     },
 // ];
 
@@ -39,7 +39,7 @@ export default function Flashcards() {
     const [currentPage, setCurrentPage] = useState(1);
     const [shuffledCards, setShuffledCards] = useState([]);
     const [showAnswer, setShowAnswer] = useState(false);
-    const [showExplaination, setShowExplaination] = useState(false);
+    const [showExplanation, setShowExplanation] = useState(false);
 
     const router = useRouter();
     const { FlashcardsID } = router.query;
@@ -148,11 +148,11 @@ export default function Flashcards() {
                     answerText={currentCard.answer}
                     showAnswer={showAnswer}
                     setShowAnswer={setShowAnswer}
-                    showExplaination={showExplaination}
-                    setShowExplaination={setShowExplaination}
-                    explaination={
-                        currentCard.explaination //verify truthy to make it optional
-                            ? currentCard.explaination
+                    showExplanation={showExplanation}
+                    setShowExplanation={setShowExplanation}
+                    explanation={
+                        currentCard.explanation //verify truthy to make it optional
+                            ? currentCard.explanation
                             : null
                     }
                 />
