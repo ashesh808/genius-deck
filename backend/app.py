@@ -36,7 +36,7 @@ def upload():
 def send_youtube_url():
     youtube_url = request.args.get('url')
     unique_id = str(uuid.uuid4())
-    Skip_image = request.args.get('Skip_Image') #Missing flag
+    Skip_image = True #request.args.get('Skip_Image') #Missing flag
     youtube_parser = YoutubeTranscribe(yt_rawdata_path=yt_rawdata_path, yt_parseddata_path=yt_parseddata_path, file=unique_id, Url=youtube_url, Flag=Skip_image)
     youtube_parser.Download()
     youtube_parser.Read_Captions()
