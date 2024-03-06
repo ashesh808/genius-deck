@@ -87,7 +87,7 @@ class YoutubeTranscribe:
     def Read_Captions(self):
         if os.path.exists(self.Read) == True:
             self.TryCaptionData()
-        elif self.Flag != True:
+        elif self.Flag != 'True':
             print("Reading caption data failed.")
             print('Parsing audio this may take a while.')
             self.Download(False)

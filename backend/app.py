@@ -3,7 +3,7 @@ from flask_cors import CORS
 from modules.file_uploader import FileUploader
 from modules.generate_flashcard import FlashCardGenerator
 from modules.flashcard_viewer import FlashCardViewer
-from modules.youtube_parser import YoutubeParser
+from modules.YouTubeTrancsribe import YoutubeTranscribe
 import uuid
 import os
 
@@ -17,7 +17,6 @@ UPLOAD_FOLDER = os.path.join(dirName, 'modules', 'data', 'upload-data')
 yt_rawdata_path = os.path.join(dirName, 'modules', 'data', 'youtuberaw-data')
 yt_parseddata_path = os.path.join(dirName, 'modules', 'data', 'youtubeparsed-data')
 flashcard_data_path = os.path.join(dirName, 'modules', 'data', 'flashcard-data')
-
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 file_uploader = FileUploader(app)
 
@@ -35,17 +34,19 @@ def upload():
 @app.route('/sendyoutubeurl', methods=['POST'])
 def send_youtube_url():
     youtube_url = request.args.get('url')
+    Skip_Audio = request.args.get('AudSkip')
     unique_id = str(uuid.uuid4())
-    youtube_parser = YoutubeParser(yt_rawdata_path=yt_rawdata_path, yt_parseddata_path=yt_parseddata_path, file=unique_id, Url=youtube_url)
+    youtube_parser = YoutubeTranscribe(raw_data_path=yt_rawdata_path, Save_data_path=yt_parseddata_path, File_Name=unique_id, URL=youtube_url, Flag=Skip_Audio)
     youtube_parser.Download()
-    youtube_parser.ReadCaptions()
+    youtube_parser.Read_Captions()
     return jsonify({'id': unique_id})
 
 @app.route('/generatecards', methods=['GET'])
 def generate_flashcards():
     id = request.args.get('id')
     dataformat = request.args.get('dataformat')
-    flashcard_generator = FlashCardGenerator(pdf_path=UPLOAD_FOLDER, yt_path=yt_parseddata_path, flashcard_path=flashcard_data_path, id=id)
+    Skip_Image = request.args.get('imgSkip')
+    flashcard_generator = FlashCardGenerator(Upload_Path=UPLOAD_FOLDER, yt_path=yt_parseddata_path, flashcard_path=flashcard_data_path, id=id, Skip_Image=Skip_Image)
     flashcard_generator.ReadData(dataformat)
     flashcard_generator.batch_strings()
     response = flashcard_generator.send_query()
