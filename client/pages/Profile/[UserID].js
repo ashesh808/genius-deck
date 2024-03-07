@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { Box, Paper, Typography, Pagination, Grid, Container } from "@mui/material"
 import PageHeader from '../../components/PageHeader'
 
+import "../../components/scaleHover.css";
+
 const itemsPerPage = 16
 
 export default function Profile () {
@@ -17,7 +19,7 @@ export default function Profile () {
     joindate: "1 January 2021",
   }
   let flashcardData = []
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < 20; i++) {
     const flashcard = {
       id: i + 1,
       title: "Test Set " + (i + 1),
@@ -45,6 +47,8 @@ export default function Profile () {
       // Array of flashcards IDs and titles
 
       // Extract size of flashcard array
+
+      // Check if the current page number is valid for the current size of the flashcards array
     }
   }, [])
 
@@ -97,12 +101,7 @@ export default function Profile () {
                     flexDirection: "column",
                     alignItems: "center",
                   }}
-                  sx={{
-                    transition: "transform 0.3s ease",
-                    ":hover": {
-                      transform: "scale(1.05)"
-                    }
-                  }}
+                  className="scaleHover"
                 >
                   <Typography variant="h6">{item.title}</Typography>
                   <Typography variant="subtitle2">{item.uploaddate}</Typography>
@@ -112,9 +111,12 @@ export default function Profile () {
             </Grid>
           ))}
         </Grid>
-        <Box style={{ display: "flex", justifyContent: "center", marginBottom: "0.5rem"}}>
-          <Pagination count={Math.ceil (numOfSets/itemsPerPage)} page={page} onChange={handleChangePage} />
-        </Box>
+        {
+          flashcardData.length > 0 &&
+          <Box style={{ display: "flex", justifyContent: "center", marginBottom: "0.5rem"}}>
+            <Pagination count={Math.ceil (numOfSets/itemsPerPage)} page={page ?? 1} onChange={handleChangePage} />
+          </Box>
+        }
       </Container>
     </Box>
   )
