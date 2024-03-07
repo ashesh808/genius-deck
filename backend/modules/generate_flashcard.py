@@ -1,30 +1,36 @@
-from modules.pdf_parser import PdfParser
+from modules.new_pdf import PdfParse
 from modules.gpt_client_wrapper import GPTClientWrapper
+from modules.powerpoint import Powerpoint
 import uuid
 import json
 import os
 
 class FlashCardGenerator:
-    def __init__(self, pdf_path, yt_path, flashcard_path, id):
+    def __init__(self, Upload_Path, yt_path, flashcard_path, id, Skip_Image):
         self.id = id
-        self.pdf_path = pdf_path
+        self.Upload_Path = Upload_Path
         self.yt_path = yt_path
         self.flashcard_path = flashcard_path
         self.parsed_data = None
+        self.Skip_Image = Skip_Image
 
     def ReadData(self, dataformat):
         if (dataformat == "pdf"):
-            pdf_parser = PdfParser(self.pdf_path, file_name=self.id)
-            parsed_data = pdf_parser.pdf_to_text()
+            pdf_parser = PdfParse(self.Upload_Path, file_name=self.id, Skip_image=self.Skip_Image)
+            parsed_data = pdf_parser.ReadPdf()
             self.parsed_data = parsed_data
         elif(dataformat == "yt"):
             txt_file_path = os.path.join(self.yt_path, self.id + ".txt")
             if os.path.exists(txt_file_path):
-                with open(txt_file_path, 'r', encoding='utf-8') as txt_file:
+                with open(txt_file_path, 'r') as txt_file:
                     parsed_data = txt_file.read()
                 self.parsed_data = parsed_data
             else:
                 print("Error finding the txt file")
+        elif(dataformat == "pptx"):
+            pptx = Powerpoint(self.Upload_Path, self.id, self.Skip_Image)
+            parsed_data = pptx.PptToText()
+            self.parsed_data = parsed_data
         else:
             raise NotImplementedError("Data format not supported yet")
 
@@ -39,11 +45,11 @@ class FlashCardGenerator:
     def save_json_response_withprefix(self, jsonResponse):
         filename = self.id + ".json"
         filepath = os.path.join(self.flashcard_path, filename)
-        with open(filepath, 'w') as json_file:
+        with open(filepath, 'a') as json_file:
             json.dump(jsonResponse, json_file, indent=2)
         return filename
     
-    def parse_string_to_json(self,input_string):
+    def parse_string_to_json(self, input_string):
         data_list = []
         sets = input_string.split("<question>")
         for set_part in sets[1:]:

@@ -76,7 +76,7 @@ class YoutubeTranscribe:
         #return(WholeText)
 
     def WriteToFile(self):
-        file = self.file + 'audio.txt'
+        file = self.file + '.txt'
         path = os.path.join(self.SaveAud, file)
         f = open(path, 'a')
         f.write(self.text)
@@ -87,7 +87,7 @@ class YoutubeTranscribe:
     def Read_Captions(self):
         if os.path.exists(self.Read) == True:
             self.TryCaptionData()
-        elif self.Flag != True:
+        elif self.Flag != 'True':
             print("Reading caption data failed.")
             print('Parsing audio this may take a while.')
             self.Download(False)
