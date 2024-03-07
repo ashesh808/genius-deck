@@ -4,15 +4,17 @@ from modules.powerpoint import Powerpoint
 import uuid
 import json
 import os
+import io
 
 class FlashCardGenerator:
-    def __init__(self, Upload_Path, yt_path, flashcard_path, id, Skip_Image):
+    def __init__(self, Upload_Path, yt_path, wiki_path, flashcard_path, id, Skip_Image):
         self.id = id
         self.Upload_Path = Upload_Path
         self.yt_path = yt_path
         self.flashcard_path = flashcard_path
         self.parsed_data = None
         self.Skip_Image = Skip_Image
+        self.wiki_path = wiki_path
 
     def ReadData(self, dataformat):
         if (dataformat == "pdf"):
@@ -31,6 +33,14 @@ class FlashCardGenerator:
             pptx = Powerpoint(self.Upload_Path, self.id, self.Skip_Image)
             parsed_data = pptx.PptToText()
             self.parsed_data = parsed_data
+        elif(dataformat == "wiki"):
+            path = os.path.join(self.wiki_path, self.id + '.txt')
+            data = open(path, 'r')
+            self.parsed_data = data.read()
+        elif(dataformat == 'txt'):
+            path = os.path.join(self.Upload_Path, self.id + '.txt')
+            data = open(path, 'r', encoding='UTF-8')
+            self.parsed_data = data.read()
         else:
             raise NotImplementedError("Data format not supported yet")
 

@@ -22,6 +22,8 @@ class FileUploader:
                 filename = id + ".pdf"
             if file.filename.endswith(".pptx"):
                 filename = id + '.pptx'
+            if file.filename.endswith('.txt'):
+                filename = id + '.txt'
             upload_folder = self.app.config.get('UPLOAD_FOLDER')
             if not upload_folder:
                 return {'error': 'UPLOAD_FOLDER configuration missing in app config'}

@@ -1,0 +1,94 @@
+Matthew Molenaar
+What this program is
+This program is my final project for CYB 267. This program contains some interesting and useful features regarding audio files and speech to text. I created this after getting inspiration from the SCSU Fall 2023 Hackathon. The two main features of the program are transcribing a YouTube video given a link, and transcribing a user submitted file. I made this with the thought that this could be a useful tool to some people that may have some learning difficulties or other disabilities. Because sometimes it is hard to hear or make out what the professor of a class is saying, or speaking too fast to take notes, I thought it would be useful to have a program that can take in a lecture that a professor gave and be able to get a rough text file of what the professor said. Since this relied of Google’s speech to text API the results may not be perfect, however, in my testing I have found that this program is more than good enough to be able to get the rough idea of what was said. This program also contains some fun features that I was able to implement, like changing the gain of a file or reversing the audio track. I wished to add more functionality, but I was running out of time and I was already not able to implement one of the main features that I wanted to. 
+Files in the program
+In my program there are four important files and it’s important that you maintain the file structure of the files. The four files are Final.py, AudioEffects.py, AudioTranscribe.py, and YoutubeTranscribe.py. The files AudioEffects, AudioTranscribe, and YoutubeTranscribe need to be in a folder named modules. The modules folder needs to be in the same directory as Final.py. 
+ 
+How the file should look
+ Contents of the modules file.
+How to install
+To install required dependencies, download the requirements.txt file and then open the command prompt using win+r and type cmd.exe in the box and click enter. 
+ 
+Now you need to navigate to the directory you downloaded the text file in. Use the command ‘cd’ followed by the path of the directory ex C:\Users\”your username”\Downloads. 
+ 
+Finally type “pip install -r requirements.txt”. If you get an error message, please check that you have python installed and that python is added to path.
+ 
+The next thing is to install ffmpeg you can get the file from their website here. (ffmpeg.org)
+For help installing ffmpeg please see this guide. https://www.geeksforgeeks.org/how-to-install-ffmpeg-on-windows/
+To test if ffmpeg is installed properly type ‘ffmpeg’ in the command line and you should get something like this.
+ 
+Now you should be good to go!! 
+
+How to use
+To use the program, open the project file in your IDE of choice like PyCharm or Visual Studio Code and run the Final.py file. If everything is working, you will get a screen like this.
+ 
+This program requires two directory paths to work. One is a path to the folder that contains the raw files you wish to use and for the program to use as a temp folder. The other path is to a file to save the files too when the program is done processing them. It is highly recommended to use two different folders as it may cause problems with the program.
+An example of the working directory path would be. C:\Users\’Your Username’\WorkingDir
+An example of the save directory path would be. C:\Users\’Your Username’\SaveDir
+To enter this into the program just copy the directory from windows and paste it into the terminal. 
+(Hint: Visual Studio Code pastes using Right-Click)
+
+
+Error message from not having the modules installed.
+ 
+There are currently six options that the user can select from as shown below.
+ 
+1 Get audio from a YouTube video.
+2 Transcribe a YouTube video.
+3 Transcribe User file.
+4 Apply gain to audio.
+5 Reverse audio track.
+6 Save and convert audio files.
+There is also a hidden ‘help’ option which displays a shorter version of what’s written here. The first feature gets audio from a YouTube video and saves it to the save directory. It takes in five inputs, two of which are handled by the computer and three are given by the user. For this feature it is a file name, a URL and a file extension. The second feature generates a transcript of a YouTube video. It takes four inputs, two from the computer and two from the user. The user inputs are a file name and a URL. The third feature generates a transcription from a file that the user gives the program. This takes three inputs, two from the computer and one from the user. The input from the user is the name of the file they want to use. The fourth feature is the gain feature. It takes four inputs, two from the computer and two from the user. The two user inputs are how much gain to apply and the name of the file. The fifth feature is the reverse feature. It reverses an audio track. It takes three inputs, two from the computer and one from the user. The user input is the name of the file. The last feature of the program is the save and convert feature. It takes in a file and converts it to a different audio format of the users’ choice. It takes four inputs, two from the computer and two from the user. The user inputs are the file name and the file extension to convert to.
+
+To select from one of these options you just need to type the number of the option and press enter. You will be prompted for input according to which feature you selected.
+
+How it works
+The program works in a fairly simple way. The main file that you run in the beginning is just a loop that runs until you enter ‘0’ when prompted for input. The structure of the loop is;
+1.	Prompt the user to make a selection
+2.	Test if the input is a valid response
+3.	If input is 1
+a.	Prompt user for a file name, extension, and URL.
+b.	Calls the Youtube module I made
+c.	Downloads and saves file from Youtube.
+d.	Returns to main loop
+4.	If input is 2
+a.	Prompt user for file name and Youtube URL
+b.	Calls the Youtube module I made
+c.	Black magic happens
+d.	Returns to main loop
+5.	If input is 3
+a.	Prompts user for file and file name
+b.	Calls the audio transcribing module 
+c.	Black magic
+d.	Returns to main loop
+6.	If input is 4, 5, 6
+a.	Prompts user for file name and additional arguments if necessary 
+b.	Calls the appropriate function from the Audio effects module
+c.	Returns to main loop
+7.	If input is 0
+a.	Stops the program
+The YoutubeTranscribe module works like this
+1.	Waits to be called by main program
+2.	When called initializes variables from the inputs it receives
+3.	If downloading audio
+a.	Sets Caption_test to false and downloads audio to the save directory
+4.	If trying to caption a video
+a.	Tests if video is captioned by a person
+i.	If yes, downloads the caption data and reads it into a text file and saves the results.
+b.	If not captioned, Sets Caption_Test to False and downloads the audio of the video
+c.	Once downloaded it reads the audio in and splits the audio into small chunks where audio is silent.
+d.	Once the audio is chunked it then iterates over the audio chunks sending each chunk to googles speech recognition API and saves the resulting text to a variable to clean up the result
+e.	Finally the text is saved to a text file in the save directory the user inputted
+The AudioTranscribe file works in a very similar way.
+1.	Waits to be called by main program
+2.	Initializes variables from user input
+3.	Converts the inputted file to .wav
+4.	Reads the audio file
+5.	Splits the audio into chunks
+6.	Iterates over the chunks and sends them to google speech recognition API
+7.	Processes results
+8.	Saves text to a text file in the save directory
+The final file is the audio effects file which is the least fleshed out file. In its current state it does this
+1.	Takes a audio file the user inputs and converts it to a .wav if it is not already
+it also has the ability to convert the audio file into different formats but since I was not able to implement the functionality I was hoping to there is not a lot going on in this file. The main audio library I was using only works with .wav files which is why I have to convert files to .wav to make sure the program works.

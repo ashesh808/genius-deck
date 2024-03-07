@@ -5,7 +5,9 @@ backend/modules/data/flashcard-data/*
 backend/modules/data/rawgpt-data/*
 backend/modules/data/youtubeparsed-data/*
 backend/modules/data/youtuberaw-data/*
+backend/modules/data/wikiraw-data/*
 feature/New-youtube
 feature/Pdf-Update
 .gitignore
 ProjectReport.pdf
+SDI_Final_Presentation.pptx
