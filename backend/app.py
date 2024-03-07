@@ -3,7 +3,6 @@ from flask_cors import CORS
 from modules.file_uploader import FileUploader
 from modules.generate_flashcard import FlashCardGenerator
 from modules.flashcard_viewer import FlashCardViewer
-from modules.webpage import Wiki 
 from modules.YouTubeTrancsribe import YoutubeTranscribe
 import uuid
 import os
@@ -17,7 +16,6 @@ dirName = os.path.dirname(__file__)
 UPLOAD_FOLDER = os.path.join(dirName, 'modules', 'data', 'upload-data')
 yt_rawdata_path = os.path.join(dirName, 'modules', 'data', 'youtuberaw-data')
 yt_parseddata_path = os.path.join(dirName, 'modules', 'data', 'youtubeparsed-data')
-wiki_parseddata_path = os.path.join(dirName, 'modules', 'data', 'wikiraw-data')
 flashcard_data_path = os.path.join(dirName, 'modules', 'data', 'flashcard-data')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 file_uploader = FileUploader(app)
@@ -42,17 +40,7 @@ def send_youtube_url():
     youtube_parser.Download()
     youtube_parser.Read_Captions()
     return jsonify({'id': unique_id})
-@app.route('/sendwikiurl', methods=['POST'])
-def send_wiki_url():
-    wiki_url = request.args.get('url')
-    # wiki_url = 'https://en.wikipedia.org/wiki/World_Wide_Web'
-    if not wiki_url:
-        return jsonify({'error': 'URL parameter is missing'})
-    unique_id = str(uuid.uuid4())
-    wiki_parser = Wiki(url=wiki_url, wiki_path=wiki_parseddata_path, file_name=unique_id)
-    wiki_parser.parsing()
-    return jsonify({'id': unique_id})
-    
+
 @app.route('/generatecards', methods=['GET'])
 def generate_flashcards():
     id = request.args.get('id')
