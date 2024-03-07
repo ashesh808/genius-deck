@@ -76,7 +76,7 @@ class YoutubeTranscribe:
         #return(WholeText)
 
     def WriteToFile(self):
-        file = self.file + 'audio.txt'
+        file = self.file + '.txt'
         path = os.path.join(self.SaveAud, file)
         f = open(path, 'a')
         f.write(self.text)
