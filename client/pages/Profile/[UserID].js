@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { Box, Paper, Typography, Pagination, Grid, Container } from "@mui/material"
-import PageHeader from '../../components/PageHeader'
-
-import "../../components/scaleHover.css";
+import PageHeader from '@/components/PageHeader'
+import FlashcardInfo from '@/components/FlashcardInfo'
 
 const itemsPerPage = 16
 
+// TODO: automatically go to page 1 if the page number is invalid or not provided
+// (right now it will show as NaN if one isn't provided)
 export default function Profile () {
   const router = useRouter();
   const UserID = router.query.UserID;
@@ -31,13 +31,18 @@ export default function Profile () {
   const numOfSets = flashcardData.length
 
   function handleChangePage (event, page) {
+    // I kinda wish this part used a useEffect instead, but I couldn't get the routing to work
+    // This code also doesn't check if the new page number is valid. It just relies on the pagination component
     router.push({ // Update query parameter in URL
       pathname: router.pathname,
       query: { ...router.query, page }, // Update page query parameter
     })
+    window.scrollTo(0, 0)
+    
     setPage (page)
   }
 
+  // This will be used to fetch the profile data later on
   React.useEffect(()=>{
     async function getFlashcardData() {
       // Get user profile information
@@ -90,24 +95,9 @@ export default function Profile () {
           {numOfSets} Flashcard Sets
         </Typography>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }} justifyContent="center" alignItems="center" paddingBottom={2}>
-          {flashcardData.slice((page-1)*itemsPerPage, page*itemsPerPage).map((item, index) => (
+          {flashcardData.slice((page-1)*itemsPerPage, page*itemsPerPage).map((flashcardObj, index) => (
             <Grid item key={index} xs={2} sm={3} md={4}>
-              <Link href={"/Flashcards/" + item.id} style={{textDecoration: 'none'}}>
-                <Paper
-                  elevation={3}
-                  style={{
-                    display: "flex",
-                    justifyContent: 'center',
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                  className="scaleHover"
-                >
-                  <Typography variant="h6">{item.title}</Typography>
-                  <Typography variant="subtitle2">{item.uploaddate}</Typography>
-                  <Typography variant="subtitle2">{item.count} Cards</Typography>
-                </Paper>
-              </Link>
+              <FlashcardInfo flashcardData={flashcardObj} link={`/Flashcards/${flashcardObj.id}`} />
             </Grid>
           ))}
         </Grid>
