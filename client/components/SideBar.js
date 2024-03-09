@@ -8,6 +8,8 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 import SearchIcon from '@mui/icons-material/Search';
 import SchoolTwoToneIcon from '@mui/icons-material/SchoolTwoTone';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
 
 const sideBarData = [
   {
@@ -38,7 +40,17 @@ const sideBarData = [
   {
     title: 'Browse',
     icon: SearchIcon,
-    url: '/Browse',
+    url: '/Browse?page=1',
+  },
+  {
+    title: 'Profile',
+    icon: AccountCircleIcon,
+    url: '/Profile/test?page=1',
+  },
+  {
+    title: 'Uploaded Files',
+    icon: UploadFileIcon,
+    url: '/UploadedFiles?page=1',
   },
 ];
 
