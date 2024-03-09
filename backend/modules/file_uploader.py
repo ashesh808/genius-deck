@@ -18,7 +18,12 @@ class FileUploader:
         if file and self.allowed_file(file.filename):
             #NOTE: Temporary fix, need to change after complete support for other file formats
             id = self.generate_unique_id()
-            filename = id + ".pdf"
+            if file.filename.endswith('.pdf'):
+                filename = id + ".pdf"
+            if file.filename.endswith(".pptx"):
+                filename = id + '.pptx'
+            if file.filename.endswith('.txt'):
+                filename = id + '.txt'
             upload_folder = self.app.config.get('UPLOAD_FOLDER')
             if not upload_folder:
                 return {'error': 'UPLOAD_FOLDER configuration missing in app config'}
