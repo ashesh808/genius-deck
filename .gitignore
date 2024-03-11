@@ -1,4 +1,4 @@
-/backend/modules/__pycache__
+/server/modules/__pycache__
 .env
 server/modules/data/upload-data/*
 server/modules/data/flashcard-data/*
