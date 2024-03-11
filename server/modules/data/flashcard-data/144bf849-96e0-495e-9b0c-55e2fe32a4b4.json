@@ -1,0 +1,16 @@
+[
+  [
+    {
+      "question": "What is the subject matter of the article?",
+      "answer": "Racial disparities in mortgage lending."
+    },
+    {
+      "question": "Why is the subject matter personally relevant to the author?",
+      "answer": "The author is a student of computer science and is interested in the impact of algorithmic technologies."
+    },
+    {
+      "question": "What is one solution mentioned in the article for addressing racial disparities in mortgage lending?",
+      "answer": "Focusing on factors other than risk minimization."
+    }
+  ]
+]
