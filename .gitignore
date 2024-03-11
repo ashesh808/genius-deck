@@ -11,5 +11,12 @@ feature/New-youtube
 feature/Pdf-Update
 .gitignore
 ProjectReport.pdf
-WebPage
 SDI_Final_Presentation.pptx
+venv
+.gitignore
+server/modules/generators/__pycache__
+server/modules/parsers/__pycache__
+
+
+#Image captioning model doesn't support m1 macs
+server/modules/Image_caption.py

@@ -1,6 +1,6 @@
 import fitz
 import io
-from modules.Image_caption import Image_Caption
+from modules.parsers.Image_caption import Image_Caption
 import os
 
 class PdfParse(Image_Caption):

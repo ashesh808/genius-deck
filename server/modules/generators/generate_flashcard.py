@@ -1,6 +1,6 @@
-from modules.new_pdf import PdfParse
-from modules.gpt_client_wrapper import GPTClientWrapper
-from modules.powerpoint import Powerpoint
+from modules.parsers.new_pdf import PdfParse
+from modules.generators.gpt_client_wrapper import GPTClientWrapper
+from modules.parsers.powerpoint import Powerpoint
 import uuid
 import json
 import os
@@ -84,6 +84,3 @@ class FlashCardGenerator:
             all_responses.append(jsonResponse)
         name = self.save_json_response_withprefix(all_responses)
         return "Last Json file saved with name " + name
-    
-
-
