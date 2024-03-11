@@ -2,10 +2,14 @@ import React from 'react';
 import { Box, Paper, Grid, Button, Typography } from '@mui/material';
 import Link from 'next/link';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 import SearchIcon from '@mui/icons-material/Search';
 import SchoolTwoToneIcon from '@mui/icons-material/SchoolTwoTone';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
 
 const sideBarData = [
   {
@@ -14,9 +18,19 @@ const sideBarData = [
     url: '/UploadPDF',
   },
   {
+    title: 'Upload PPT',
+    icon: CoPresentIcon,
+    url: '/UploadPPT',
+  },
+  {
     title: 'YouTube Link',
     icon: YouTubeIcon,
     url: '/YouTubeLink',
+  },
+  {
+    title: 'Wikipedia Link',
+    icon: MenuBookIcon,
+    url: '/WikipediaLink',
   },
   {
     title: 'Card Data',
@@ -26,11 +40,22 @@ const sideBarData = [
   {
     title: 'Browse',
     icon: SearchIcon,
-    url: '/Browse',
+    url: '/Browse?page=1',
+  },
+  {
+    title: 'Profile',
+    icon: AccountCircleIcon,
+    url: '/Profile/test?page=1',
+  },
+  {
+    title: 'Uploaded Files',
+    icon: UploadFileIcon,
+    url: '/UploadedFiles?page=1',
   },
 ];
 
 const websiteName = "GeniusDeck"
+const footerText = "Made for MICS 2024"
 
 /**
  * Acts as a way for users to brose the site. Intended to always be displayed on the left
@@ -64,7 +89,7 @@ export default function SideBar() {
 
       <Box style={{backgroundColor: "#808080", padding: "0.5rem"}}>
         <Typography align="center" variant="subtitle1" style={{fontSize: "0.8rem"}}>
-            Made for the SCSU Fall 2023 Hackathon
+            {footerText}
         </Typography>
       </Box>
     </Box>
