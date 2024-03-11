@@ -1,0 +1,583 @@
+There's an asterisk
+in the title of this video. Of course there's an asterisk. There has to be.
+And I'll be honest... I had a whole script
+ready to go here as the sun sets over the
+Atacama Desert in Chile. But, I've found so much
+more than I expected over the last day and a half.
+So many stories. I've been exhausted
+both from the altitude – we're three kilometres
+up here – and from dashing around
+with handheld cameras trying to capture everything. So, what's going to
+happen now is we're going to cut to
+a version of me in a couple weeks' time
+who is coherent and who's had time
+to process all this. [Caption+ by JS*
+caption.plus | @caption_plus] Here's the story. I got an invitation to visit
+the Extremely Large Telescope. Scientists love giving
+telescopes names like that. It's a telescope.
+It's extremely large. The invite was from the UK Science and
+Technology Facilities Council and the European
+Southern Observatory. They arranged everything, but they have
+no editorial control over what I'm saying. And I paid for my own travel. Those flights were expensive. So there'll be an advert
+for NordVPN later on, because it was actually useful
+to me while I was in Chile. Anyway, the
+Atacama Desert is the most desolate place
+I've ever been to. Rolling hills
+of stone and rock for hour after hour
+of driving. I'm sure there's life
+out there somewhere, but we didn't see any of it. Eventually, we arrive at
+the base camp at Paranal. Let me give you the
+lay of the land. At the bottom of the hill
+is the Residence, where visiting scientists
+and non-scientists stay. Not a hotel.
+Very definitely not a hotel. You can't pay for a
+room there if you try. It's more like university dorms, if university dorms ever
+won architectural awards. That's at the
+bottom of the hill, along with all the support
+buildings and structures that are needed to
+support life out there. Up at the top of the hill
+is the Very Large Telescope, built about 20 years ago. And a few kilometres away,
+a little dot on a flattened-off hill
+on the horizon: that's the Extremely Large
+Telescope, the new one. And that's likely going to be the largest optical telescope
+that will ever be built. But to understand why that is, I need to show you around. Our first stop is at the Very Large Telescope
+– the VLT – up on the hill about 2km
+from base camp. In theory, you can walk it. There's a path called
+the Star Track, but... I didn't feel like
+getting altitude sickness. The VLT has been operational
+for more than 20 years now. Results from it have
+won Nobel Prizes. It was the first telescope
+to take an actual picture of a planet around
+another star. It tested Einstein's
+general relativity by tracking a star around the supermassive black hole
+at the centre of the galaxy. And it's actually
+several telescopes. The four big ones are called
+the Unit Telescopes, or UTs. And we were visiting UT4. Are we good to
+just go in? Okay. Oh, wow! (laughs) So, at Paranal, we
+have four UT telescopes. These are the large
+telescopes we have here. Where the primary mirror, this thing that you see here,
+underneath us here, is 8.2 metres in diameter. And that is a mirror... very, very scientifically precise, but the same kind
+of optical mirror that you would have just to
+do your makeup in the morning or something like that. Um, yes, yes.
+(laughs) Lesson one:
+Do not compare the extremely expensive
+scientific instrument to a makeup mirror. The important thing is that the telescopes here
+are optical telescopes. That's the first reason
+for the asterisk. There are already
+bigger radio telescopes. I was lucky enough to visit
+Arecibo before the collapse, and I recently visited
+Parkes in Australia. They're all much bigger. But they collect
+radio waves, not light. They pick up very
+different frequencies, and they're useful for
+observing different objects and doing different science. There's stuff
+you can do with radio that you can't do with
+optical, and vice versa. Radio telescopes have
+to be much larger because the wavelengths
+of the microwaves and radio waves
+they pick up range from millimetres
+to tens of metres. But they don't have
+to be as precise. As long as you build
+a big bowl that's the right shape,
+you don't need to make a perfect optical mirror finish. It will still work.
+Arecibo's surface was just kind of rough mesh,
+but that still worked. Optical astronomy looks for
+visible light or infrared. The stuff we can see
+with the naked eye, or close to that. The wavelengths
+are from about 100 micrometres to
+100 nanometres. And so the optics have
+to be so, so precise, just like any other camera lens. Well actually, more precise, because mirrors this big
+have other problems. When you get to
+this large telescope, it's actually extremely difficult to keep the mirror stable
+and in the same position. It has 150 actuators
+underneath it. It's like poking the
+mirror ever so slightly. That must be microns. That must be a tiny,
+tiny amount it's moving. Yeah, and this is basically to take into account
+gravity of the mirror and the temperature difference
+we have within here, because when
+you move the mirror, then from gravity, then
+the shape of the mirror is also changing as well. That's called
+"active optics", deforming the mirror
+ever so slightly to deal with the effects
+of gravity as you tilt it, and from thermal expansion
+as the temperature changes. That's how accurate
+this has to be. We'll come back to that later,
+'cause I got to see the mirror and those actuators
+close up, but first... We've got to explain what
+that mirror actually does. They were getting it
+ready for the night, so they had to test it. Because the whole thing moves. Oh, oh!
+We're moving. That's way faster than
+I thought it was gonna be. We basically
+test the rotation. We test all of the
+movements of the telescopes. We check for the
+safety of the system, before we're going to start
+the nighttime operations. You can't hear the
+movement, right? This is so fast! Oh, we're going
+back the other way. I'm just giggling. This is several hundred
+tons of material. It's moving like this,
+and basically it's kind of floating
+on top of this very small amount
+of oil film that's underneath here.
+Because during the night, when we're doing the
+scientific observations, we may be staying on one target. So observing one galaxy
+for several hours. Because the Earth is rotating, so therefore we need
+to move the telescope so that we keep pointing at
+exactly the same position. So this movement needs
+to be extremely smooth, because we don't want to add any additional movement
+onto the observations when we're observing
+our science targets. Rotation test complete,
+now the tilt. We're going to
+open the dome... and we want to put the
+mirror in such a way that if anything falls
+down from the dome, that the probability of that actually falling on the
+mirror is extremely low. In the middle of the desert,
+constantly you're having dust that's accumulating
+onto the mirror. I mean, large things
+falling onto it is extremely rare.
+(chuckles) I just looked over there.
+Oh, wow! So the light would
+come in from a star. Yes.
+Hit the main mirror, which is the big
+reflective thing there... back to M2 just here. Exactly. And then down
+to M3 in the middle. It can rotate to send it
+to any two at the instrument, or it opens to send it to
+the instrument that's below the M1 mirror. Right. There's a lot of very bad
+animations out there, which show
+satellite transmissions and stuff like that beaming not into the
+bowl of the dish, but to the detector,
+the thing that sticks out. And that is the wrong way round.
+That's really important. Light bounces off
+M1, the bowl, and gets focused
+onto the focal point. And then here it gets
+bounced down again, either to the
+equipment at the sides or down into the basement. Light's going to
+come in and hit M1. Yes.
+But isn't M2 in the way of what
+you're trying to observe? No, it doesn't, because
+you have parallel light beams that are arriving to the M1. It's not going to come
+across on camera, I don't think... But there is quite a little
+white mark just there, and a lot of dust
+on the mirror. How much is that going to
+affect the observations? For any given object
+of a given brightness, as the mirror gets dirtier, then you'll have to
+observe for longer to get the same amount of
+light on your detector. We recoat the mirror once
+every two or three years, maintain the reflectivity. They do use dry ice to dust the mirrors
+every few weeks, but that can't get everything
+that builds up over time. Dust on the mirror
+doesn't change the optics. It doesn't spoil the image. It just means that some light
+isn't reflected at all. So over time, the image
+gets less and less bright. I did get to see the
+mirror recoating lab later. They'd just started to clean one of the other
+telescope mirrors, the one from UT1. And when I arrived
+at the lab, the first thing I saw was
+the structure they used to transport the whole
+thing down the hill. How on earth did
+you get that thing all the way down
+the hill from UT1? First, we have to
+disconnect the cell from the main structure
+of the telescope. And then we put this structure on the yellow part
+you can see, which is the carriage. And this carriage is put
+on top of a truck. And we drive
+three kilometres. This system is
+over air cushions, and we can move with
+the air cushions. Wait, it's a hovercraft? Yeah. Exactly.
+It's basically a hovercraft! It is exactly
+the same principle. Because the mirror is
+not here right now, maybe we can go up to it. Yeah, yeah. Let's go up.
+Do you want to go up? Yeah, absolutely. So what you can see
+from up top is the telescope without
+the mirror on it. The mirror, I thought, was kind of a bowl shape. But this looks flat to me. The sag is not so high. It's 30 cm. So it looks flat,
+but it's a sphere. Okay, it's just a
+section of a very big sphere. Exactly.
+You can imagine that if we make the full
+bowl out of this mirror, it will be a bowl
+of 60 m diameter. So let's go see the
+mirror being cleaned. They'd moved it into the
+clean room next door. And to start with,
+it was just being washed. Also, I realise I look stupid with the hoodie on
+under the clean room gown. I mean, first,
+it's not a medical or semiconductor-grade
+clean room. They assured me it's fine. And second, the reason
+I'm always in the hoodie is that we were always
+going out and in, so the temperature was
+always switching from cold, air conditioned interior
+to brutally hot sun that I needed to
+cover myself from. So it just seemed like the
+best uniform for the job. Oh, that is the mirror. Yeah, so we have a
+small window so you can... Oh, I'm scared
+to breathe now. What you can see
+is the washing unit. Basically, it's the
+place where we do the stripping of the
+coating and the washing before entering
+the vacuum chamber. Right now, we are in the
+first step of the process, which is a first cleaning
+to remove all the dust, also all the stains
+that was collected during two years by the mirror. And then, we can start to do the stripping or
+etching of the coating, using this rotating arm
+to pour the acid and to have the layer going out. So, wash the mirror
+to remove the contaminants, then acid etch the
+old coating away, and then... When we have
+cleaned the mirror, and we will close
+this big chamber, do the vacuum, and
+deposit the aluminium. You have the
+heart of the machine. This is what we
+call the magnetron, and it's where we have
+the target of aluminium. 99.9% of aluminum, very pure. That's way beyond
+what you'd normally get for industrial use. And by the way,
+there are some shutters. It is closed, so we
+cannot see the target. The rainbow colours are some
+deposition during the process. During years you have
+these thin layers, then it's nice. How much is being added here? The thickness of the coating
+is around 0.1 micron, which is very, very small. And a micron is
+1/1,000th of a millimetre. Exactly. 1/10,000th of a millimetre. You can basically count
+the number of atoms there. It's a 1,000 atoms' layer. One thousand.
+(heavy exhale) The weight is around
+seven grams. Over the entire
+eight metre mirror? They atomise aluminium to
+create the mirror layer. And when I say atomise, I don't mean like
+perfume sprayer atomiser. I mean literally,
+they use plasma to make individual
+atoms of aluminium float around in a vacuum,
+and then they just let it softly rain down
+onto the mirror until they have a coating
+about 1,000 atoms thick. Anyway, up at UT4,
+the dome was opening. So this is going to
+point at the sky. Yes. That's obviously
+a lot more light than it would normally get? You have the shutter in place. So this, you know,
+black curtain that you have here is there so no light's going
+to get through there. Oh, it's just a
+physical blackout curtain. Okay, yeah.
+I can see that just there. And I just noticed
+the guide star lasers. I know they've been
+there all the time. They've been really obvious. But now it's pointed this way, I can see one, two, three,
+four giant laser emitters! Those are enormous! It's giant laser time! But we can only see
+that after the sun sets. That's not the ocean,
+by the way. Those are clouds.
+We're above the clouds. Anyway, sun sets,
+stars come out. The Milky Way is just
+stretched out above Paranal, and it is so beautiful! I've never seen
+the stars this clearly! And they don't seem to twinkle, 'cause there's less
+atmosphere up here to cause that twinkling,
+that distortion. The atmosphere isn't
+one consistent thing. There are different temperatures
+and pressures of air, and the light gets refracted. It's not like wind
+blowing balloons around. The photons of light
+aren't being blown away. But it's the same reason that an object in a swimming pool
+looks distorted when you look down at it
+from above the surface. That's a difference
+in the medium that the light is
+travelling through. The different pockets of air that are constantly moving
+about in the upper atmosphere cause the same sort of effect. That's why the stars twinkle. The light is slightly
+bending its path as the pockets of air
+move around. That's the reason that
+the telescope is built high up on a desert mountain. There is less atmosphere
+to get in the way. But there is still
+some twinkling, even if I can't spot it myself. Enough that it'd still cause
+problems with observations. And that's what
+the lasers are for. The lasers didn't look
+quite that bright in person. Those are long exposure photos, but they looked cool enough. And down in the control room, the scientists there explained
+what they used them for. This is the laser control? In some way, it's
+like a status monitor, where we can see the status
+of the laser beacons, which are these four
+images we see up here, and also what commands are being sent to
+the deformable mirror to correct the wavefront. Four lasers beamed out, camera scanning exactly
+what's happening to the beams in terms of just position? Is it just finding the
+brightest dot in the sky? The lasers generate
+a point source that we can measure with
+the wavefront sensor. And the idea behind
+the adaptive optics is to make that point source as tight and as
+compact as possible. So we generate these artificial stars,
+the laser beacons. We measure them, we apply correction to
+the deformable mirror, and that hopefully improves the
+quality of the laser beacon, and thus improving the
+quality of the science image. Every millisecond,
+we're making a measurement
+of the wavefront, and it's being
+commanded to the DSM. What's the lag on that? It's a few milliseconds. But the DSM is wibbling
+like this really quickly. Yeah!
+Every millisecond. That's absolutely amazing. Yeah. Why four lasers? So, multiple lasers allows us
+to correct the wavefront over a large area on the sky, providing uniform
+image quality across the science observation. If you only had one laser, you would get good
+correction in the middle. But then it would degrade
+as you go further out. And I figure they're
+at a specific frequency that you can then notch out in the rest of the observations?
+Exactly, yes. This is the sodium wavelength. On the instrument,
+we have a filter to filter out that light.
+Also on the telescopes. Yeah.
+On the guide star. So, in short,
+they shoot the laser up, see how it wobbles, and then do maths to subtract that wobble
+from the observation. Look, I'm gonna say
+"they do maths" at a few points
+during this video, because it's the
+sort of calculation that people spend
+years learning about. Suffice it to say,
+they do maths, work out how the laser
+guide stars are moving, and then physically move
+and distort the M2 mirror to subtract that
+atmospheric distortion from the actual stuff
+they're looking at. So, now you know how a modern
+optical telescope works, and how precise and
+difficult the work is. That's the first thing
+you need to know to understand why the Extremely Large
+Telescope, the new one, is probably the biggest
+that will ever be built. The next day,
+we're able to go down into the basement underneath the four telescopes. Because when I said
+that the VLT was four Unit Telescopes... Yes it is, but they can
+all act as one, called the VLTI: Very Large Telescope
+Interferometer. There is a lot of competition for 'biggest telescope
+in the world'. There's things like the
+Event Horizon Telescope, which is a network
+of radio telescopes all around the globe.
+They all point at the same thing
+at the same time, and because
+they are so far apart on other sides of the planet, the astronomers can record
+the data that's received, analyse it with signal
+processing algorithms and supercomputers,
+and do maths, and create a virtual telescope
+that is the size of the planet. That's called interferometry, because the maths is all about how those signals
+interfere with each other. We basically
+completely change the way that
+we handle the data the minute we start
+combining these beams. We're thinking about
+interfering waves of light rather than an image. And the pattern we get from
+the interference of that light is where we extract all of
+the information that we want. Radio astronomy can do that
+by recording the radio waves, and then processing
+it all afterwards. But remember how I said the wavelength
+of radio is longer, and the telescopes don't
+have to be so precise? Well, turns out
+a lot of other things don't have to be so
+precise for that either. Atmospheric variations are a huge limitation
+for us in the optical because, you know, the
+atmosphere is full of water. It's full of things
+that vary very quickly at optical and
+infrared wavelengths. The atmosphere is not
+varying so crazily at radio and
+submillimetre wavelengths. So you have—
+you're able to maintain all that phase information. It doesn't get
+completely smeared out by the atmospheric variations. You know if there's a party with a really loud
+sound system a way away? Then you won't hear
+the treble, you won't hear the
+tss-tss-tss-tss. But you will hear the thump-thump-thump
+of the bass? Radio waves, and... Apologies to physicists
+watching this, but radio waves are the bass of the
+electromagnetic spectrum. They travel just fine
+through the atmosphere with minimal distortion. That's why nobody
+bothers sending radio telescopes into space. We don't need to. But at optical frequencies,
+it's different. All the information that you
+need to do interferometry, that information gets
+smudged much more easily as it passes through
+the atmosphere. And that's not even
+the worst problem. For light, there is not a computer in
+the world fast enough to deal with
+all that information. And there is not a clock in
+the world precise enough. Even radio interferometry requires very precise
+atomic clocks synchronised across the globe. But there just isn't
+a clock in the world accurate enough to do that for the micrometre wavelengths
+or nanometre wavelengths, and terahertz
+frequencies of light. A radio wave... You can just record it. Even before digital
+computers were a thing, you could just record
+a radio wave onto magnetic tape.
+Every single detail of it. Every frequency, every
+little nuance, everything. Heck, a boombox from
+the '80s can do that. When people used to tape
+songs off the radio, that is a very rough
+and imprecise version of radio astronomy. But for light, there is
+not a computer in the world fast enough
+to record that data. Not with the accuracy
+required for interferometry. So instead... they do it physically
+in real time. Remember when I said that the light from
+the Unit Telescopes could be sent off to the
+equipment at the side, or down into the basement? Let's go see the basement. So where are we headed now? We are going inside
+what we call the coudé room. Coudé? Yeah, this is
+the room containing the adaptive optics system
+for the interferometer. And coudé means... Elbow.
+Elbow, in French. In French.
+Okay. (laughs) So I'm guessing
+from the name that this is a movable joint? A hinge that can change
+the direction of the light? Yes. Then this,
+the coudé, for us, the coudé path, is what we call
+the nine mirrors. That's a serious
+warning sign, that is. (chuckles nervously)
+Yeah. Oh! Okay, we are
+under the telescope, and we are under what
+we call the coudé path. And this is really where
+we receive the light, which will be,
+let's call it organised, in order to bring it
+towards the VLTI. The light comes into
+each of the telescopes, it gets bounced around the
+mirrors of the delay tunnel, gets funnelled into
+the VLTI lab, gets funnelled
+into the instrument, and that's where
+it gets combined. So the light beam
+isn't recorded anywhere. It's just bounced into tiny
+tunnels from each telescope. And its next stop is
+a 150 metre long human accessible tunnel to synchronise
+all the beams. The delay lines. So these tunnels
+run all the way from all the telescopes
+to a central point? Oh?
+Sorry. Cannot cross to
+this side of the room. Okay, my entire
+body needs to stay... This is the boundary. Alright, thank you.
+(chuckles) Sorry. Okay, so I'm not going to
+go near their equipment if I'm told not to.
+But in my head, I'm like, that's a little strange. That looks like fairly
+heavy infrastructure. Surely I can't do any damage
+if I accidentally just... bump up against it? Well, the light arrives
+in the delay lines in that tunnel from the side. It hits a series of mirrors designed to synchronise
+all the beams, and each beam is
+bounced up the tunnel to one of the carriages
+and reflected back. So how precise does
+that have to be? I can show you.
+Okay. We use the delay lines
+for observation, and you can see here
+the error. 136 nanometres. I assumed that the carriage
+would be accurate to maybe a millimetre? And then there'd be some
+electronics and mirrors in there that would do the
+nanometre correction. But is that carriage
+accurate to 100 nanometres
+in its position? The error that
+I showed you there is the precision that
+the carriage has. I understand why
+I got told not to even get close to that line.
+That's incredible! The carriages
+can be moved with 100 nanometres of precision.
+100 nanometres! That's why they didn't
+want me near them. They'll have to recalibrate
+each night anyway, of course, and it'll get cleaned
+from time to time, but they don't want some idiot potentially bumping into things that have to be 100
+nanometres accurate. Because that's how
+they delay the light and do optical interferometry. That's how everything
+is synchronised. No recording, no playback, no computers analysing things. It's analogue. It's physical. Explaining what happens in
+the science part of that, inside the freezing
+cold vacuum of... science stuff,
+in the rest of the lab, is way beyond me. That's the stuff astronomy
+PhDs are made of. And it's still a lot of work to record the
+interference patterns and work back from that. But, if all those beams
+are synchronised enough... it means they can
+approximate a telescope the size of the
+entire VLT platform, all four Unit Telescopes, instead of just the
+individual telescope mirrors. But all those
+telescopes, for optical, have to be
+physically connected. So, we've covered
+interferometry. We've covered the
+mirrors and resurfacing. And we've covered
+the sheer scale of these telescopes. You now know everything
+you need to know to work out why the ELT – the Extremely Large
+Telescope – will probably be the
+largest optical telescope ever constructed.
+And that ELT... is our final stop. If you're wondering
+why I'm rocking the extremely fashionable
+combination of awful raggedy old baseball cap that I found in my
+checked baggage, and hoodie up... The altitude is about
+three kilometres here. The UV index is just "yes" 'cause that's one of the
+reasons they built here. We are as close to the
+top of the atmosphere as you can reasonably get. Let's go, guys. Oh, we've actually got named
+safety gear in our size. Okay, there we go. Required protective
+equipment up here: Helmet, gloves, high vis, steel toe cap boots,
+and factor 50 sunblock. The construction site
+is 20 kilometres away. Down the hill that the VLT
+is on, up the next one. It is colossal, and it looks
+so much closer than it is. My brain refused to admit
+that a telescope dome could be that big. The construction
+is 74 metres high, 86 metres in diameter. And that... That is an extremely
+large telescope. The main mirror, the M1, 39.2 metres in diameter, comprised of
+798 hexagonal panels. We will make the biggest
+optical mirror ever built. That is... colossal! We are expecting images five times sharper than
+the James Webb Telescope that is in outer space. Sorry, five times sharper
+than the James Webb? The one that's out there Yeah.
+beyond the atmosphere? Yeah, exactly. The first reason
+that there's likely to be nothing bigger
+than this is sheer cost. The cost line does not
+follow a linear relationship, but it goes exponential. So maybe you will add,
+you say, a couple of metres more,
+and the costs double. There have been plans for bigger telescopes. There was something
+called the Overwhelmingly Large
+Telescope, the OWLT, that was briefly planned. It could happen. But it'd cost
+tens of billions of euro, and frankly, the
+technology's unproven. Second reason:
+We're reaching the limits of what is
+physically possible with current
+construction technology. They're engineering
+something that is part telescope,
+part skyscraper. So it's lots of different
+sections all working together? Yeah, all the sections
+are working together, and its geometry
+will be readjusted through three actuators
+per segment, for a total number
+of 2,394 actuators. The eight metre
+mirrors in the VLT, they sag under
+their own weight. And granted, the ELT is
+using mirror segments, not a single monolithic mirror,
+but keeping them all aligned isn't easy,
+and the entire structure will still stretch and warp
+as it's moved around. And with thermal expansion
+as the temperature changes. This wall is basically
+the upper foundation, where on top of it,
+the telescope will be mounted. Right. So this is
+fixed to the ground, and on top of it, there is
+a hydraulic bearing system that will be moving the telescope. How precise does
+that have to be, for those movements? We are talking
+about 100/1,000, depending on the observation,
+of arc seconds. Okay, so what does
+a thousandth of an arc second
+of precision mean? I did some maths,
+and it means that this colossal
+skyscraper telescope will move so smoothly
+and so precisely that if you told it to look at
+and track a spot on the moon, it would be accurate
+to within two metres! The actual imaging resolution's
+not quite that small. It could image buildings
+about 10 metres across at that distance,
+but again... That's a distance that can be
+measured in light seconds! We are at the limits of
+what it's possible to do with current technology. And the last reason – and I think the
+most important one – is that at some point, we're going to solve
+optical interferometry. People are working on it. Right now, it still
+has to be physical. Computers aren't fast enough.
+Clocks aren't precise enough. But they're only
+going to get better. At some point in the future, we are probably going
+to figure that out, and we'll be able to do
+optical interferometry the same way that
+we can do radio. And as soon as that happens, the Extremely Large
+Telescope will be... not obsolete. It'll still be useful for
+some types of observations, because there are
+advantages to the size. Big telescopes let you
+detect very small things and very faint things. Interferometry gets you
+the small stuff, but not the faint stuff, because there's
+less mirror surface for the light to bounce off. But odds are, at some point, there'll be much cheaper
+and easier virtual ways of making
+really big telescopes. The ELT is still going to do
+a hell of a lot of science before that can happen,
+if it ever does happen. But once that's done, maybe in a few decades,
+maybe a century, the case for building
+something this big kind of goes away,
+if instead, you can build a few
+small telescopes and piece them all together. So this, the Extremely
+Large Telescope, will probably be the last of
+the great optical telescopes. I could be wrong.
+Who knows? Maybe in a century's time,
+this will seem ridiculous, and there'll be a
+100 metre mirror sitting high on a plateau
+somewhere in South America. But if I had to place a bet, I think there's a
+very strong chance the ELT will be the
+largest optical telescope to ever be built. And, as I said earlier, NordVPN was extremely
+useful to me. I have been using it a lot, because while I was in Chile, websites kept showing up
+in the wrong language. They're all like,
+'No voy a renunciar a ti'. Plus, over the last year or so, I've saved hundreds of
+dollars on car rental, because some rental
+companies charge way less just depending on where they
+think your computer's located. Same car, same contract, same driving licence,
+same everything. I went all the way to the
+final checkout to make sure. I just clicked
+NordVPN's magic button to say I was back in the UK. And suddenly I got a rental
+for almost half price. And of course, if you
+want to watch shows from back home, you can. Just check the streaming
+service's terms first. You can use NordVPN on
+six devices at the same time, across Windows, Mac,
+Linux, iOS, and Android. And there's a 30-day
+money back guarantee if you want to test it out first. If you go to
+nordvpn.com/tomscott, click the link
+in the description or scan the QR code, then you'll get the best deal
+they're currently offering whenever you're
+watching this video. 
