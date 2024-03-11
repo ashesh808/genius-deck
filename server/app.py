@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from modules.file_uploader import FileUploader
-from modules.generators.generate_flashcard import FlashCardGenerator
-from modules.flashcard_viewer import FlashCardViewer
-from modules.parsers.YouTubeTrancsribe import YoutubeTranscribe
-from modules.parsers.webpage import Wiki
+from modules.endpoint_helpers.file_uploader import FileUploader
+from modules.endpoint_helpers.generate_flashcard import FlashCardGenerator
+from modules.endpoint_helpers.flashcard_viewer import FlashCardViewer
+from modules.endpoint_helpers.YouTubeTrancsribe import YoutubeTranscribe
+from modules.endpoint_helpers.webpage import Wiki
 import uuid
 import os
 
