@@ -1,4 +1,8 @@
+bs4 == 0.0.2
 flask == 3.0.0
+flask_cors == 4.0.0
+fitz == 0.0.1.dev0
+frontend == 0.0.3
 openai == 1.2.3
 yt-dlp == 2023.10.13
 webvtt-py == 0.4.6
@@ -8,3 +12,9 @@ ffmpeg == 1.4
 jsonify == 0.5
 python-dotenv == 1.0.0
 PyPDF2 == 3.0.1
+Pillow == 10.2.0
+tools == 0.1.9
+torch == 2.2.1
+salesforce-lavis 
+python-pptx
+whisper == 1.1.10

@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from modules.file_uploader import FileUploader
-from modules.generate_flashcard import FlashCardGenerator
-from modules.flashcard_viewer import FlashCardViewer
-from modules.YouTubeTrancsribe import YoutubeTranscribe
-from modules.webpage import Wiki
+from modules.endpoint_helpers.file_uploader import FileUploader
+from modules.endpoint_helpers.generate_flashcard import FlashCardGenerator
+from modules.endpoint_helpers.flashcard_viewer import FlashCardViewer
+from modules.endpoint_helpers.YouTubeTrancsribe import YoutubeTranscribe
+from modules.endpoint_helpers.webpage import Wiki
 import uuid
 import os
 
@@ -56,6 +56,7 @@ def send_wiki_url():
 
 @app.route('/generatecards', methods=['GET'])
 def generate_flashcards():
+    
     id = request.args.get('id')
     dataformat = request.args.get('dataformat')
     Skip_Image = request.args.get('imgSkip')
