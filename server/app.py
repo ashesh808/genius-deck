@@ -56,6 +56,7 @@ def send_wiki_url():
 
 @app.route('/generatecards', methods=['GET'])
 def generate_flashcards():
+    
     id = request.args.get('id')
     dataformat = request.args.get('dataformat')
     Skip_Image = request.args.get('imgSkip')
