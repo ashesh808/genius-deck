@@ -30,7 +30,7 @@ The GeniusDeck API allows users to upload PDF documents, send YouTube video link
 
 ## Upload PDF
 
-**Endpoint:** `/uploadpdf`  
+**Endpoint:** `/upload`  
 **Method:** `POST`  
 
 ### Request
