@@ -28,7 +28,7 @@ The GeniusDeck API allows users to upload PDF documents, send YouTube video link
 3. [Generate Flashcards](#generate-flashcards)
 4. [Get Flashcard Data](#get-flashcard-data)
 
-## Upload PDF
+## Upload Materials
 
 **Endpoint:** `/upload`  
 **Method:** `POST`  
