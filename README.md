@@ -35,7 +35,7 @@ The GeniusDeck API allows users to upload PDF documents, send YouTube video link
 
 ### Request
 - Form Data:
-  - `file`: PDF file to be uploaded.
+  - `file`: PDF, TXT, or PPTX file to be uploaded.
 
 ### Response
 - JSON Object:
