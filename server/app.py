@@ -9,7 +9,7 @@ import uuid
 import os
 
 app = Flask(__name__)
-
+    
 CORS(app)
 
 #This is the folder where pdf will be downloaded to 
