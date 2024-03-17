@@ -39,8 +39,3 @@ class Powerpoint(Image_Caption):
         return whole_text
         #print(whole_text)
         #f.close()
-
-if __name__ == '__main__':
-    pptx = input('Input path ')
-    test = Powerpoint(pptx, False)
-    test.PptToText()

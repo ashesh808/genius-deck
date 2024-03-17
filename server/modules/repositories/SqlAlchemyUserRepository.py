@@ -1,14 +1,14 @@
 from sqlalchemy.orm import Session
-from repositories.IRepository import IRepository
-from entities.UserEntity import User
-from models.UserModel import UserModel
-from datamappers.UserDataMapper import UserDataMapper
+from modules.repositories.IRepository import IRepository
+from modules.entities import User
+from server.modules.models import UserModel
+from modules.datamappers.UserDataMapper import UserDataMapper
 
 # a sentinel value for keeping track of entities removed from the repository
 REMOVED = object()
 
 class SqlAlchemyUserRepository(IRepository):
-    """SqlAlchemy implementation of ListingRepository"""
+    """SqlAlchemy implementation of UserRepository"""
 
     def __init__(self, session: Session, identity_map=None):
         self.session = session
@@ -18,13 +18,26 @@ class SqlAlchemyUserRepository(IRepository):
         self._identity_map[entity.user_id] = entity
         instance = UserDataMapper.entity_to_model(entity)
         self.session.add(instance)
-    
+
     def delete(self, entity: User):
         """Removes existing entity from a repository"""
-        raise NotImplementedError()
+        if entity.user_id in self._identity_map:
+            del self._identity_map[entity.user_id]
+            instance = self.session.query(UserModel).filter_by(id=entity.user_id).one()
+            self.session.delete(instance)
 
-    def get(id) -> User:
-        raise NotImplementedError()
+    def get(self, id) -> User:
+        if id in self._identity_map:
+            return self._identity_map[id]
+        else:
+            instance = self.session.query(UserModel).filter_by(id=id).one()
+            entity = UserDataMapper.model_to_entity(instance)
+            self._identity_map[id] = entity
+            return entity
 
-    def update(self): 
-        raise NotImplementedError
+    def update(self, entity: User):
+        if entity.user_id in self._identity_map:
+            instance = self.session.query(UserModel).filter_by(id=entity.user_id).one()
+            updated_instance = UserDataMapper.entity_to_model(entity)
+            for key, value in updated_instance.__dict__.items():
+                setattr(instance, key, value)

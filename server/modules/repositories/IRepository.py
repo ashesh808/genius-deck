@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from repositories.IReadOnlyRepository import IReadOnlyRepository
+from modules.repositories.IReadOnlyRepository import IReadOnlyRepository
 
 class IRepository(IReadOnlyRepository):
     @abstractmethod 
@@ -10,7 +10,6 @@ class IRepository(IReadOnlyRepository):
     def delete(self): 
         raise NotImplementedError
     
-
     @abstractmethod
     def update(self): 
         raise NotImplementedError

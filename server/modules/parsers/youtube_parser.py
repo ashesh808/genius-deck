@@ -21,7 +21,6 @@ class YoutubeParser(Youtube):
 
         with sr.AudioFile(path) as source:
             audioListened = r.record(source)
-
             text = r.recognize_google(audioListened)
             return(text)
         

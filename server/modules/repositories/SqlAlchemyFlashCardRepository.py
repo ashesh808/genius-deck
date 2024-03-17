@@ -1,14 +1,14 @@
 from sqlalchemy.orm import Session
 from repositories.IRepository import IRepository
-from entities.UserEntity import User
-from models.UserModel import UserModel
+from entities import User
+from server.modules.models import UserModel
 from datamappers.UserDataMapper import UserDataMapper
 
 # a sentinel value for keeping track of entities removed from the repository
 REMOVED = object()
 
 class SqlAlchemyFlashCardRepository(IRepository):
-    """SqlAlchemy implementation of ListingRepository"""
+    """SqlAlchemy implementation of FlashCardRepository"""
 
     def __init__(self, session: Session, identity_map=None):
         self.session = session

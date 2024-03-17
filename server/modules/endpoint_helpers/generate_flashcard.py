@@ -1,10 +1,8 @@
 from modules.parsers.new_pdf import PdfParse
 from modules.generators.gpt_client_wrapper import GPTClientWrapper
 from modules.parsers.powerpoint import Powerpoint
-import uuid
 import json
 import os
-import io
 
 class FlashCardGenerator:
     def __init__(self, Upload_Path, yt_path, wiki_path, flashcard_path, id, Skip_Image):

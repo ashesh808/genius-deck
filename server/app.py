@@ -1,12 +1,16 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import uuid
+import os
+
 from modules.endpoint_helpers.file_uploader import FileUploader
 from modules.endpoint_helpers.generate_flashcard import FlashCardGenerator
 from modules.endpoint_helpers.flashcard_viewer import FlashCardViewer
 from modules.endpoint_helpers.YouTubeTrancsribe import YoutubeTranscribe
 from modules.endpoint_helpers.webpage import Wiki
-import uuid
-import os
+
 
 app = Flask(__name__)
     
@@ -20,9 +24,13 @@ yt_rawdata_path = os.path.join(dirName, 'modules', 'data', 'youtuberaw-data')
 yt_parseddata_path = os.path.join(dirName, 'modules', 'data', 'youtubeparsed-data')
 flashcard_data_path = os.path.join(dirName, 'modules', 'data', 'flashcard-data')
 
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-file_uploader = FileUploader(app)
+# Set up the database engine and sessionmaker
+engine = create_engine(os.environ.get("DB_URL"))
+Session = sessionmaker(bind=engine)
+session = Session()
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+file_uploader = FileUploader(app, session)
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -31,7 +39,8 @@ def upload():
     file = request.files['file']
     if file.filename == '':
         return jsonify({'error': 'No selected file'})
-    result = file_uploader.upload(file)
+    user_id = 1
+    result = file_uploader.upload(file, user_id)
     return jsonify(result)
 
 @app.route('/sendyoutubeurl', methods=['POST'])
@@ -56,7 +65,6 @@ def send_wiki_url():
 
 @app.route('/generatecards', methods=['GET'])
 def generate_flashcards():
-    
     id = request.args.get('id')
     dataformat = request.args.get('dataformat')
     Skip_Image = request.args.get('imgSkip')
