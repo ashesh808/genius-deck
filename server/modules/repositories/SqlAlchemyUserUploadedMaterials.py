@@ -12,6 +12,8 @@ class SqlAlchemyUploadedMaterialRepository(IRepository):
     def add(self, entity: UploadedMaterial):
         model = self.data_mapper.entity_to_model(entity)
         self.session.add(model)
+        self.session.commit()  
+        return model.id
 
     def get(self, id: int) -> UploadedMaterial:
         model = self.session.query(UploadedMaterialModel).filter_by(id=id).first()
@@ -24,8 +26,17 @@ class SqlAlchemyUploadedMaterialRepository(IRepository):
         if model:
             updated_model = self.data_mapper.entity_to_model(entity, existing=model)
             self.session.merge(updated_model)
+            self.session.commit()  
 
     def delete(self, entity: UploadedMaterial):
         model = self.session.query(UploadedMaterialModel).filter_by(id=entity.id).first()
         if model:
             self.session.delete(model)
+            self.session.commit()
+
+    def commit(self):
+        try:
+            self.session.commit()
+        except Exception as e:
+            self.session.rollback()
+            raise e  

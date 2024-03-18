@@ -4,6 +4,7 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 
 from modules.parsers.pdf_parser import PdfParser
+from modules.parsers.pptx_parser import PptxParser
 from modules.entities import UploadedMaterial
 from modules.repositories.SqlAlchemyUserUploadedMaterials import SqlAlchemyUploadedMaterialRepository
 
@@ -17,12 +18,9 @@ class FileUploader:
     def allowed_file(self, filename):
         return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-    def generate_unique_id(self):
-        return str(uuid.uuid4())
-
     def upload(self, file, user_id):
         if file and self.allowed_file(file.filename):
-            id = self.generate_unique_id()
+            id = "placeholder"
             if file.filename.endswith('.pdf'):
                 filename = id + ".pdf"
             if file.filename.endswith(".pptx"):
@@ -36,27 +34,32 @@ class FileUploader:
             try:
                 file.save(upload_path)
                 content = self.parse_file(upload_folder, filename)
-                print(content)
                 uploaded_material = UploadedMaterial(
-                    id= 1,
+                    id=0, 
                     content=content,
                     date_uploaded=datetime.now(),
                     user_id=user_id
                 )
                 session = self.Session
                 repository = SqlAlchemyUploadedMaterialRepository(session)
-                repository.add(uploaded_material)
-                session.commit()
-                return {'id': uploaded_material.id}
+                id = repository.add(uploaded_material)
+                return {'id': id}
             except Exception as e:
                 return {'error': f'Failed to save file: {str(e)}'}
         else:
             return {'error': 'Invalid file format'}
 
     def parse_file(self, file_path, filename):
+        path = os.path.join(file_path, filename)
+        if filename.endswith('.txt'):
+            data = open(path, 'r', encoding='UTF-8')
+            return data.read()
         if filename.endswith('.pdf'):
-            pdf_parser = PdfParser(file_path, filename)
-            return pdf_parser.pdf_to_text()
+            pdf_parser = PdfParser(path)
+            return pdf_parser.parse()
+        if filename.endswith('.pptx'):
+            pptx_parser = PptxParser(path)
+            return pptx_parser.parse()
         else:
             # Handle other file formats if needed
             return ''

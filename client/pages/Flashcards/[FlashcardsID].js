@@ -69,9 +69,8 @@ export default function Flashcards() {
                     );
 
                     const flashcard_data = await flashcardResponse.json();
-                    const combinedArray = [].concat(...flashcard_data);
                     if (Array.isArray(flashcard_data) === true) {
-                        setShuffledCards(combinedArray);
+                        setShuffledCards(flashcard_data);
                     } else {
                         // Handle error
                         console.error("Error getting flashcard data");

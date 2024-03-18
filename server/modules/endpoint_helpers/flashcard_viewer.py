@@ -1,24 +1,20 @@
 import os
 import json
+from sqlalchemy.orm import Session
+from modules.repositories.SqlAlchemyFlashCardRepository import SqlAlchemyFlashCardRepository
 
 class FlashCardViewer:
-    def __init__(self, ID, flashcard_path):
-        self.FlashID = ID
-        self.path = self.ReturnPath(flashcard_path)
+    def __init__(self, id, session: Session):
+        self.uploaded_material_id = id
+        self.flashcard_repository = SqlAlchemyFlashCardRepository(session)
 
-    def ReturnPath(self, flashcard_path):
-        self.FlashID = str(self.FlashID)
-        return os.path.join(flashcard_path, f"{self.FlashID}.json")
-
-    def ReadJson(self):
-        try:
-            with open(self.path, "r") as file:
-                data = json.load(file)
-            return data
-        except FileNotFoundError:
-            return "File does not exist"
-        except json.JSONDecodeError as e:
-            return f"Error decoding JSON: {str(e)}"
-        except Exception as e:
-            return f"An unexpected error occurred: {str(e)}"
-
+    def SendJsonFlashCards(self):
+        flashcards = self.flashcard_repository.get_by_uploaded_material_id(self.uploaded_material_id)
+        json_data = []
+        for flashcard in flashcards:
+            flashcard_data = {
+                "question": flashcard.question,
+                "answer": flashcard.answer
+            }
+            json_data.append(flashcard_data)
+        return json.dumps(json_data, indent=2)

@@ -18,7 +18,6 @@ class YoutubeParser(Youtube):
     
     def ParseAudio(self, path):
         r = sr.Recognizer()
-
         with sr.AudioFile(path) as source:
             audioListened = r.record(source)
             text = r.recognize_google(audioListened)
@@ -27,7 +26,6 @@ class YoutubeParser(Youtube):
     
     def LargeAudioParse(self):
         sound = AudioSegment.from_file(self.readaud)
-
         chunks = split_on_silence(sound,
                                   min_silence_len = 500,
                                   silence_thresh = sound.dBFS-14,
@@ -38,7 +36,6 @@ class YoutubeParser(Youtube):
         if not os.path.isdir(tempfolder):
             os.mkdir(tempfolder)
         WholeText = ''
-
         for i, AuidoChunk in enumerate(chunks, start=1):
             chunk_filename = os.path.join(tempfolder, f'chunk{i}.wav')
             AuidoChunk.export(chunk_filename, format='wav')
@@ -50,10 +47,8 @@ class YoutubeParser(Youtube):
                 print("Error", str(e))
             else:
                 text = f'{text.capitalize()}. '
-                #print(chunk_filename, ':', text)
                 WholeText += text
         self.text = WholeText
-        #return(WholeText)
 
     def WriteToFile(self):
         file = self.file + 'audio.txt'

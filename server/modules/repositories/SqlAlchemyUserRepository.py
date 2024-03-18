@@ -8,8 +8,6 @@ from modules.datamappers.UserDataMapper import UserDataMapper
 REMOVED = object()
 
 class SqlAlchemyUserRepository(IRepository):
-    """SqlAlchemy implementation of UserRepository"""
-
     def __init__(self, session: Session, identity_map=None):
         self.session = session
         self._identity_map = identity_map or dict()
@@ -18,9 +16,10 @@ class SqlAlchemyUserRepository(IRepository):
         self._identity_map[entity.user_id] = entity
         instance = UserDataMapper.entity_to_model(entity)
         self.session.add(instance)
+        self.session.commit()  
+        return instance.user_id
 
     def delete(self, entity: User):
-        """Removes existing entity from a repository"""
         if entity.user_id in self._identity_map:
             del self._identity_map[entity.user_id]
             instance = self.session.query(UserModel).filter_by(id=entity.user_id).one()

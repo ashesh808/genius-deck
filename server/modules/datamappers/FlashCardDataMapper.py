@@ -1,39 +1,39 @@
-from models import FlashCardModel
-from entities import FlashCards
-from datamappers.IDataMapper import IDataMapper
+from modules.models import FlashCardModel
+from modules.entities import FlashCard
+from modules.datamappers.IDataMapper import IDataMapper
 
 class FlashCardDataMapper(IDataMapper):
-    def model_to_entity(self, instance: FlashCardModel) -> FlashCards:
-        return FlashCards(
+    def model_to_entity(self, instance: FlashCardModel) -> FlashCard:
+        return FlashCard(
             id=instance.id,
             uploaded_material_id=instance.uploaded_material_id,
             user_id=instance.user_id,
-            gen_date=instance.gen_date,
+            generation_date=instance.generation_date,
             is_private=instance.is_private,
             question=instance.question,
             answer=instance.answer,
-            model=instance.model
+            generation_model=instance.generation_model
         )
 
-    def entity_to_model(self, entity: FlashCards, existing=None) -> FlashCardModel:
+    def entity_to_model(self, entity: FlashCard, existing=None) -> FlashCardModel:
         if existing:
             # Update the existing model instance
             existing.uploaded_material_id = entity.uploaded_material_id
             existing.user_id = entity.user_id
-            existing.gen_date = entity.gen_date
+            existing.generation_date = entity.generation_date
             existing.is_private = entity.is_private
             existing.question = entity.question
             existing.answer = entity.answer
-            existing.model = entity.model
+            existing.generation_model = entity.generation_model
             return existing
         else:
             # Create a new model instance
             return FlashCardModel(
                 uploaded_material_id=entity.uploaded_material_id,
                 user_id=entity.user_id,
-                gen_date=entity.gen_date,
+                generation_date=entity.generation_date,
                 is_private=entity.is_private,
                 question=entity.question,
                 answer=entity.answer,
-                model=entity.model
+                generation_model=entity.generation_model
             )

@@ -1,11 +1,12 @@
 import PyPDF2
 import os
+from modules.parsers.IParser import IParser
 
-class PdfParser:
-    def __init__(self, pdf_path, file_name):
-        self.pdf_path = os.path.join(pdf_path,file_name)
+class PdfParser(IParser):
+    def __init__(self, pdf_path):
+        self.pdf_path = pdf_path
 
-    def pdf_to_text(self):
+    def parse(self):
         text = ""
         try:
             with open(self.pdf_path, "rb") as file:

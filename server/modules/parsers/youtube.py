@@ -4,7 +4,6 @@ import webvtt
 import time
 
 class Youtube:
-
     def __init__(self, yt_rawdata_path, yt_parseddata_path, file='test', URL='https://www.youtube.com/watch?v=dQw4w9WgXcQ'):
         self.file = str(file)
         self.url = URL
@@ -12,7 +11,6 @@ class Youtube:
         self.ext = self.file + '.en.vtt'
         self.read = os.path.join(yt_rawdata_path, self.ext)
         self.savepath = yt_parseddata_path
-
 
     def Download(self):
         output = {'default' : self.file}
@@ -45,9 +43,3 @@ class Youtube:
         f.write(cap)
         f.close
         os.remove(self.read)
-
-if __name__ == '__main__':
-    Test = Youtube(file='Rickroll')
-    Test.Download()
-    Test.ReadCaptions()
-    time.sleep(2)

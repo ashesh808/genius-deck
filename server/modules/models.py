@@ -27,8 +27,8 @@ class FlashCardModel(Base):
     user_id = Column(Integer, ForeignKey('users.id'), nullable=True)
     generation_date = Column(DateTime, nullable=False)
     is_private = Column(Boolean, nullable=False)
-    questions = Column(Text, nullable=False)
-    answers = Column(Text, nullable=False)
+    question = Column(Text, nullable=False)
+    answer = Column(Text, nullable=False)
     generation_model = Column(String(100), nullable=False)
 
 class TagModel(Base):

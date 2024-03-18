@@ -1,30 +1,45 @@
+from typing import List
 from sqlalchemy.orm import Session
-from repositories.IRepository import IRepository
-from entities import User
-from server.modules.models import UserModel
-from datamappers.UserDataMapper import UserDataMapper
-
-# a sentinel value for keeping track of entities removed from the repository
-REMOVED = object()
+from modules.repositories.IRepository import IRepository
+from modules.entities import FlashCard
+from modules.models import FlashCardModel
+from modules.datamappers.FlashCardDataMapper import FlashCardDataMapper
 
 class SqlAlchemyFlashCardRepository(IRepository):
     """SqlAlchemy implementation of FlashCardRepository"""
 
-    def __init__(self, session: Session, identity_map=None):
+    def __init__(self, session: Session):
         self.session = session
-        self._identity_map = identity_map or dict()
+        self.data_mapper = FlashCardDataMapper()
 
-    def add(self, entity: User):
-        self._identity_map[entity.user_id] = entity
-        instance = UserDataMapper.entity_to_model(entity)
+    def add(self, entity: FlashCard):
+        instance = self.data_mapper.entity_to_model(entity)
         self.session.add(instance)
-    
-    def delete(self, entity: User):
-        """Removes existing entity from a repository"""
-        raise NotImplementedError()
+        self.session.commit()
+        return instance.id
 
-    def get(id) -> User:
-        raise NotImplementedError()
+    def delete(self, entity: FlashCard):
+        """Removes an existing entity from the repository."""
+        model = self.session.query(FlashCardModel).get(entity.id)
+        if model:
+            self.session.delete(model)
+            self.session.commit()
 
-    def update(self): 
-        raise NotImplementedError
+    def get(self, id) -> FlashCard:
+        """Gets an entity by its ID."""
+        model = self.session.query(FlashCardModel).filter_by(id=id).first()
+        if model:
+            return self.data_mapper.model_to_entity(model)
+        return None
+
+    def update(self, entity: FlashCard): 
+        """Updates an existing entity."""
+        model = self.session.query(FlashCardModel).get(entity.id)
+        if model:
+            self.data_mapper.update_model_with_entity(model, entity)
+            self.session.commit()
+
+    def get_by_uploaded_material_id(self, uploaded_material_id: int) -> List[FlashCard]:
+        """Retrieve flashcards by uploaded_material_id"""
+        flashcards = self.session.query(FlashCardModel).filter_by(uploaded_material_id=uploaded_material_id).all()
+        return [self.data_mapper.model_to_entity(flashcard) for flashcard in flashcards]

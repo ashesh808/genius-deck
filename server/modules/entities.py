@@ -26,8 +26,8 @@ class FlashCard:
     user_id: int
     generation_date: datetime
     is_private: bool
-    questions: str
-    answers: str
+    question: str
+    answer: str
     generation_model: str
 
 @dataclass
