@@ -30,6 +30,8 @@ session = Session()
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 file_uploader = FileUploader(app, session)
+flashcard_viewer = FlashCardViewer(session = session)
+
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -80,8 +82,11 @@ def get_flashcard_data():
     uploaded_material_id = request.args.get('id')
     if not uploaded_material_id:
         return jsonify({'error': 'id parameter is missing'})
-    flashcard_viewer = FlashCardViewer(id=uploaded_material_id, session = session)
-    return flashcard_viewer.SendJsonFlashCards()
+    return flashcard_viewer.ViewFlashCardByUploadID(uploaded_material_id)
+
+@app.route('/browse', methods=['GET'])
+def get_all_flashcards():
+    return flashcard_viewer.ViewAllFlashCards()
 
 if __name__ == '__main__':
     app.run(debug=True)

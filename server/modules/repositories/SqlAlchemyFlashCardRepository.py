@@ -31,6 +31,11 @@ class SqlAlchemyFlashCardRepository(IRepository):
         if model:
             return self.data_mapper.model_to_entity(model)
         return None
+    
+    def getAll(self) -> List[FlashCard]:
+        """Gets all entities """
+        flashcard_models = self.session.query(FlashCardModel).all()
+        return [self.data_mapper.model_to_entity(model) for model in flashcard_models]
 
     def update(self, entity: FlashCard): 
         """Updates an existing entity."""
