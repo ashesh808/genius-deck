@@ -7,10 +7,9 @@ from modules.parsers.Image_caption import Image_Caption
 from modules.parsers.IParser import IParser
 
 class PptxParser(IParser, Image_Caption):
-    def __init__(self, Upload_path, id, Flag=True):
-        self.pptx_path = os.path.join(Upload_path, id + '.pptx')
+    def __init__(self, Upload_path, Flag=True):
+        self.pptx_path = Upload_path
         self.Flag = Flag
-        self.save = os.path.join(Upload_path, id + '.txt')
         Image_Caption.__init__(self)
 
     def parse(self):
