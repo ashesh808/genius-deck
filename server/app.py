@@ -1,15 +1,19 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import uuid
+import os
+
 from modules.endpoint_helpers.file_uploader import FileUploader
 from modules.endpoint_helpers.generate_flashcard import FlashCardGenerator
 from modules.endpoint_helpers.flashcard_viewer import FlashCardViewer
 from modules.endpoint_helpers.YouTubeTrancsribe import YoutubeTranscribe
 from modules.endpoint_helpers.webpage import Wiki
-import uuid
-import os
+
 
 app = Flask(__name__)
-
+    
 CORS(app)
 
 #This is the folder where pdf will be downloaded to 
@@ -18,10 +22,15 @@ UPLOAD_FOLDER = os.path.join(dirName, 'modules', 'data', 'upload-data')
 wiki_parseddata_path = os.path.join(dirName, 'modules', 'data', 'wikiraw-data')
 yt_rawdata_path = os.path.join(dirName, 'modules', 'data', 'youtuberaw-data')
 yt_parseddata_path = os.path.join(dirName, 'modules', 'data', 'youtubeparsed-data')
-flashcard_data_path = os.path.join(dirName, 'modules', 'data', 'flashcard-data')
+
+# Set up the database engine and sessionmaker
+engine = create_engine(os.environ.get("DB_URL"))
+Session = sessionmaker(bind=engine)
+session = Session()
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-file_uploader = FileUploader(app)
+file_uploader = FileUploader(app, session)
+flashcard_viewer = FlashCardViewer(session = session)
 
 
 @app.route('/upload', methods=['POST'])
@@ -31,7 +40,8 @@ def upload():
     file = request.files['file']
     if file.filename == '':
         return jsonify({'error': 'No selected file'})
-    result = file_uploader.upload(file)
+    user_id = 1
+    result = file_uploader.upload(file, user_id)
     return jsonify(result)
 
 @app.route('/sendyoutubeurl', methods=['POST'])
@@ -54,13 +64,13 @@ def send_wiki_url():
     wiki_parser.parsing()
     return jsonify({'id': unique_id})
 
+#Change this to POST
 @app.route('/generatecards', methods=['GET'])
 def generate_flashcards():
-    
     id = request.args.get('id')
     dataformat = request.args.get('dataformat')
-    Skip_Image = request.args.get('imgSkip')
-    flashcard_generator = FlashCardGenerator(Upload_Path=UPLOAD_FOLDER, yt_path=yt_parseddata_path, wiki_path=wiki_parseddata_path, flashcard_path=flashcard_data_path, id=id, Skip_Image=Skip_Image)
+    #Skip_Image = request.args.get('imgSkip')
+    flashcard_generator = FlashCardGenerator(id=id, yt_path=yt_parseddata_path, wiki_path=wiki_parseddata_path, Skip_Image=True, session=session)
     flashcard_generator.ReadData(dataformat)
     flashcard_generator.batch_strings()
     response = flashcard_generator.send_query()
@@ -69,12 +79,14 @@ def generate_flashcards():
 
 @app.route('/getflashcarddata', methods=['GET'])
 def get_flashcard_data():
-    flashcard_id = request.args.get('id')
-    if not flashcard_id:
-        return jsonify({'error': 'ID parameter is missing'})
-    flashcard_viewer = FlashCardViewer(flashcard_path=flashcard_data_path, ID=flashcard_id)
-    flashcard_data = flashcard_viewer.ReadJson()
-    return flashcard_data
+    uploaded_material_id = request.args.get('id')
+    if not uploaded_material_id:
+        return jsonify({'error': 'id parameter is missing'})
+    return flashcard_viewer.ViewFlashCardByUploadID(uploaded_material_id)
+
+@app.route('/browse', methods=['GET'])
+def get_all_flashcards():
+    return flashcard_viewer.ViewAllFlashCards()
 
 if __name__ == '__main__':
     app.run(debug=True)

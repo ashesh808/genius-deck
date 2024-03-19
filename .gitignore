@@ -1,22 +1,25 @@
-/server/modules/__pycache__
-.env
+#Data files
 server/modules/data/upload-data/*
 server/modules/data/flashcard-data/*
 server/modules/data/rawgpt-data/*
 server/modules/data/youtubeparsed-data/*
-WebPage
 server/modules/data/youtuberaw-data/*
 server/modules/data/wikiraw-data/*
-feature/New-youtube
-feature/Pdf-Update
-.gitignore
-ProjectReport.pdf
-SDI_Final_Presentation.pptx
-venv
-.gitignore
-server/modules/generators/__pycache__
-server/modules/parsers/__pycache__
 
+#pycache
+/server/modules/__pycache__
+/server/modules/generators/__pycache__
+/server/modules/parsers/__pycache__
+/server/modules/repositories/__pycache__
+/server/modules/endpoint_helpers/__pycache__
+/server/modules/datamappers/__pycache__
 
 #Image captioning model doesn't support m1 macs
 server/modules/Image_caption.py
+
+#Others
+.env
+WebPage
+ProjectReport.pdf
+SDI_Final_Presentation.pptx
+venv

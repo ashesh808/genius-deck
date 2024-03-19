@@ -45,10 +45,3 @@ class PdfParse(Image_Caption):
         #out.close()
         Whole_text = data.decode()
         return(Whole_text)
-
-if __name__ == '__main__':
-    path = input()
-    name = input()
-    img = False
-    test = PdfParse(path, name, img)
-    test.ReadPdf()
