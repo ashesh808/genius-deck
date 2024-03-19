@@ -52,7 +52,7 @@ class FileUploader:
     def parse_file(self, file_path, filename):
         path = os.path.join(file_path, filename)
         if filename.endswith('.txt'):
-            data = open(path, 'r', encoding='UTF-8')
+            data = open(path, 'r')
             return data.read()
         if filename.endswith('.pdf'):
             pdf_parser = PdfParser(path)
