@@ -14,12 +14,14 @@ server/modules/data/wikiraw-data/*
 /server/modules/endpoint_helpers/__pycache__
 /server/modules/datamappers/__pycache__
 
-#Image captioning model doesn't support m1 macs
-server/modules/Image_caption.py
-
 #Others
 .env
 WebPage
 ProjectReport.pdf
 SDI_Final_Presentation.pptx
 venv
+
+#Client 
+/client/.next/
+/client/node_modules
+/client/.env.local
