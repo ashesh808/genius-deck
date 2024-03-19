@@ -10,7 +10,7 @@ class PdfParse(Image_Caption):
 
     def ReadPdf(self):
         data = b''
-        txt = "An image depicting"
+        txt = "An image depicting "
         doc = fitz.open(self.pdf_path)
         #out = open('output.txt', 'wb')
         for page_index in range(len(doc)):
