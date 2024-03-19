@@ -3,7 +3,6 @@ import os
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 from modules.parsers.youtube import Youtube
-import time
 import shutil
 
 

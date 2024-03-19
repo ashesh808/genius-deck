@@ -1,7 +1,6 @@
 from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 import io
-import os
 
 from modules.parsers.Image_caption import Image_Caption
 from modules.parsers.IParser import IParser

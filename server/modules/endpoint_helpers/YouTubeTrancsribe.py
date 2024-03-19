@@ -12,7 +12,7 @@ class YoutubeTranscribe:
         self.Url = URL
         self.path = {'home' : raw_data_path}
         self.Read_Raw = raw_data_path
-        self.Audext = self.file + '.wav'
+        self.Audext = self.file + ' .wav'
         self.ReadAud = os.path.join(raw_data_path, self.Audext)
         self.SaveAud = Save_data_path
         self.ext = self.file + '.en.vtt'
