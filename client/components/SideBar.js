@@ -3,6 +3,7 @@ import { Box, Paper, Grid, Button, Typography } from '@mui/material';
 import Link from 'next/link';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
+import MicIcon from '@mui/icons-material/Mic';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import DataObjectIcon from '@mui/icons-material/DataObject';
@@ -21,6 +22,11 @@ const sideBarData = [
     title: 'Upload PPT',
     icon: CoPresentIcon,
     url: '/UploadPPT',
+  },
+  {
+    title: 'Upload Transcript',
+    icon: MicIcon,
+    url: '/UploadZoomTranscript',
   },
   {
     title: 'YouTube Link',
