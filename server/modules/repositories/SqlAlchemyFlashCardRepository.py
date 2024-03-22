@@ -15,7 +15,6 @@ class SqlAlchemyFlashCardRepository(IRepository):
     def add(self, entity: FlashCard):
         instance = self.data_mapper.entity_to_model(entity)
         self.session.add(instance)
-        self.session.commit()
         return instance.id
 
     def delete(self, entity: FlashCard):
@@ -48,3 +47,10 @@ class SqlAlchemyFlashCardRepository(IRepository):
         """Retrieve flashcards by uploaded_material_id"""
         flashcards = self.session.query(FlashCardModel).filter_by(uploaded_material_id=uploaded_material_id).all()
         return [self.data_mapper.model_to_entity(flashcard) for flashcard in flashcards]
+    
+    def commit(self):
+        try:
+            self.session.commit()
+        except Exception as e:
+            self.session.rollback()
+            raise e  

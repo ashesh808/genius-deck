@@ -2,8 +2,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import uuid
 import os
+import random
 
 from modules.endpoint_helpers.file_uploader import FileUploader
 from modules.endpoint_helpers.generate_flashcard import FlashCardGenerator
@@ -48,21 +48,21 @@ def upload():
 def send_youtube_url():
     youtube_url = request.args.get('url')
     Skip_Audio = request.args.get('AudSkip')
-    unique_id = str(uuid.uuid4())
-    youtube_parser = YoutubeTranscribe(raw_data_path=yt_rawdata_path, Save_data_path=yt_parseddata_path, File_Name=unique_id, URL=youtube_url, Flag=Skip_Audio)
-    youtube_parser.Download()
-    youtube_parser.Read_Captions()
-    return jsonify({'id': unique_id})
+    user_id = 1
+    youtube_parser = YoutubeTranscribe(raw_data_path=yt_rawdata_path, save_data_path=yt_parseddata_path, file_name="placeholder", url=youtube_url, session=session, flag=Skip_Audio)
+    youtube_parser.download()
+    id = youtube_parser.process(user_id)
+    return jsonify({'id': id})
 
 @app.route('/sendwikiurl', methods=['POST'])
 def send_wiki_url():
     wiki_url = request.args.get('url')
     if not wiki_url:
         return jsonify({'error': 'URL parameter is missing'})
-    unique_id = str(uuid.uuid4())
-    wiki_parser = Wiki(url=wiki_url, wiki_path=wiki_parseddata_path, file_name=unique_id)
-    wiki_parser.parsing()
-    return jsonify({'id': unique_id})
+    user_id = 1
+    wiki_parser = Wiki(url=wiki_url, session=session)
+    id = wiki_parser.parse(user_id)
+    return jsonify({'id': id})
 
 #Change this to POST
 @app.route('/generatecards', methods=['GET'])
