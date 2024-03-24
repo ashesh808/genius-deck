@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-
 import { Box, Button, TextField } from "@mui/material";
+
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -11,6 +11,9 @@ const Login = () => {
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
+            if (!username || !password) {
+                return window.alert("Please fill out all fields");
+            }
             setIsLoading(true);
             const res = await fetch("http://localhost:5000/login", {
                 method: "POST",
@@ -25,19 +28,25 @@ const Login = () => {
 
             if (!res.ok) {
                 throw new Error("Login failed");
+                return window.alert("Login failed");
             }
 
             const data = await res.json();
 
             if (data.error) {
-                return setError(data.error);
+                return window.alert(data.error);
             }
 
             setError("");
 
             console.log(`Login successful!`);
+            // Redirect after successful login
+            router.push("http://localhost:3000");
+
+            // Redirect to home page
         } catch (error) {
             console.error(error.message);
+            window.alert(error.message);
         } finally {
             setIsLoading(false);
         }
