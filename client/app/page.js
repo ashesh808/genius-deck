@@ -12,7 +12,7 @@ export default function Home() {
 				<div className='flex text-5xl text-center'>
 					Welcome to Genius Deck
 				</div>
-				<div className='flex mt-5 text-3xl text-center w-[50%]'>
+				<div className='flex mt-5 text-3xl text-center w-[50%] items-center justify-center'>
 					Revolutionizing student learning with AI generated flashcards
 				</div>
 				<div className='mt-5'>
