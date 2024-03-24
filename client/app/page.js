@@ -1,33 +1,38 @@
-import { Box, Grid, Typography } from "@mui/material"
-import CssBaseline from '@mui/material/CssBaseline';
-import PageHeader from '../components/PageHeader'
-import SideBar from "@/components/SideBar";
-
-let style = {
-  display: "flex",
-  minHeight: "100vh",
-  flexDirection: "column",
-  justifyContent: "space-between"
-}
-
+import './globals.css';
+import { Button, ButtonGroup } from '@mui/material';
+import SideBar from '@/components/SideBar';
+import Link from 'next/link';
+import '@fontsource/roboto/300.css'; // Defaults to weight 400
 export default function Home() {
-  return (
-    <Box style={style}>
-      <CssBaseline />
-      <Grid container spacing={0} style={{height: "100vh"}}>
-        <Grid item xs={3} md={2}>
-          <SideBar />
-        </Grid>
-        <Grid item xs={9} md={10}>
-          <Box sx={{padding: "1rem"}}>
-            {/* Content goes here */}
-            <PageHeader title="Welcome!" />
-            <Typography align="center" variant="body1">
-              Please selection an option on the left to begin!
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-    </Box>
-  )
+	return (
+		<div className='flex h-full'>
+			<div className='items-left justify-left md:w-[20%] sm:w-[30%]'>
+				<SideBar />
+			</div>
+			<div className='flex flex-col w-full items-center mt-[27vh]'>
+				<div className='flex text-5xl text-center'>
+					Welcome to Genius Deck
+				</div>
+				<div className='flex mt-5 text-3xl text-center w-[50%]'>
+					Revolutionizing student learning with AI generated flashcards
+				</div>
+				<div className='mt-5'>
+					<ButtonGroup className='gap-x-4'>
+						<Button
+							variant='contained'
+							href='/SignUp'
+							className='text-2xl'>
+							Sign Up
+						</Button>
+						<Button
+							className='text-2xl'
+							variant='contained'
+							href='/SignIn'>
+							Sign In
+						</Button>
+					</ButtonGroup>
+				</div>
+			</div>
+		</div>
+	);
 }
