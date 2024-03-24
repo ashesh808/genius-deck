@@ -1,8 +1,7 @@
 import './globals.css';
-import { Button, ButtonGroup } from '@mui/material';
+import '@fontsource/roboto/300.css';
 import SideBar from '@/components/SideBar';
-import Link from 'next/link';
-import '@fontsource/roboto/300.css'; // Defaults to weight 400
+import { Button, ButtonGroup } from '@mui/material';
 export default function Home() {
 	return (
 		<div className='flex h-full'>
