@@ -1,7 +1,48 @@
 import React from "react";
+import { useState } from "react";
 
 import { Box, Button, TextField } from "@mui/material";
 const Login = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        try {
+            setIsLoading(true);
+            const res = await fetch("http://localhost:5000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username: "username",
+                    password: "password",
+                }),
+            });
+
+            if (!res.ok) {
+                throw new Error("Login failed");
+            }
+
+            const data = await res.json();
+
+            if (data.error) {
+                return setError(data.error);
+            }
+
+            setError("");
+
+            console.log(`Login successful!`);
+        } catch (error) {
+            console.error(error.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <div
             style={{
@@ -14,6 +55,7 @@ const Login = () => {
         >
             <Box
                 component="form"
+                onSubmit={handleLogin}
                 sx={{
                     border: "1px solid black",
                     borderRadius: "20px",
@@ -23,16 +65,21 @@ const Login = () => {
                 noValidate
                 autoComplete="off"
             >
-                <h1 style ={{
-                    textAlign: "center",
-                    marginBottom: "20px",
-                }}>Login</h1>
+                <h1
+                    style={{
+                        textAlign: "center",
+                        marginBottom: "20px",
+                    }}
+                >
+                    Login
+                </h1>
                 <div>
                     <TextField
                         required
                         sx={{ margintop: "20px" }}
                         id="outlined-required"
                         label="Username"
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
                 <div>
@@ -42,10 +89,13 @@ const Login = () => {
                         label="Password"
                         type="password"
                         autoComplete="current-password"
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
                 <Button
+                    type="submit"
                     variant="contained"
+                    disabled={isLoading}
                     sx={{
                         display: "flex",
                         justifyContent: "center",
