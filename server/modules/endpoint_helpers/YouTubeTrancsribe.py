@@ -1,106 +1,91 @@
 import os
 from yt_dlp import YoutubeDL
 import webvtt
-import time
 import whisper
-
+from datetime import datetime
+from modules.repositories.SqlAlchemyUserUploadedMaterials import SqlAlchemyUploadedMaterialRepository
+from modules.entities import UploadedMaterial
 
 class YoutubeTranscribe:
-    #initilizes the class with variables i need
-    def __init__ (self, raw_data_path, Save_data_path, File_Name, URL, Flag=bool):
-        self.file = str(File_Name)
-        self.Url = URL
+    def __init__(self, raw_data_path, save_data_path, file_name, url, session, flag=False):
+        self.file_name = file_name
+        self.url = url
+        self.raw_data_path = raw_data_path
         self.path = {'home' : raw_data_path}
-        self.Read_Raw = raw_data_path
-        self.Audext = self.file + '.wav'
-        self.ReadAud = os.path.join(raw_data_path, self.Audext)
-        self.SaveAud = Save_data_path
-        self.ext = self.file + '.en.vtt'
-        self.Read = os.path.join(raw_data_path, self.ext)
-        self.Save = Save_data_path
-        self.Flag = Flag
-    # downloads the data from youtube
-    def Download(self, Caption_Test=True):
-        output = {'default' : self.file}
-        #making a dictionary of the options i want to include with the download
+        self.save_data_path = save_data_path
+        self.audio_ext = f"{file_name}.wav"
+        self.read_audio = os.path.join(raw_data_path, self.audio_ext)
+        self.caption_ext = f"{file_name}.en.vtt"
+        self.read_caption = os.path.join(raw_data_path, self.caption_ext)
+        self.upload_repository = SqlAlchemyUploadedMaterialRepository(session)
+        self.flag = flag
+        self.text = ""
+
+    def download(self, caption_test=True):
+        output = {'default': self.file_name}
         ydl_opts = {
-            'format' : 'wav/bestaudio/best',
+            'format': 'wav/bestaudio/best',
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
-                'preferredcodec' : 'wav',
+                'preferredcodec': 'wav',
             }],
-            'writesubtitles' : True,
-            'writeautomaticsub' : False,
-            'forcefilename' : True,
-            'skip_download' : Caption_Test,
+            'writesubtitles': True,
+            'writeautomaticsub': False,
+            'forcefilename': True,
+            'skip_download': caption_test,
             'paths' : self.path,
-            'outtmpl' : output
+            'outtmpl': output
         }
 
-        URL = [self.Url]
-        with YoutubeDL(ydl_opts) as ydl :
-            ydl.download(URL)
-    #tries to read the captions from the youtube video
-    def TryCaptionData(self):
-        time.sleep(1)
-        cap =''
-        for caption in webvtt.read(self.Read):
-            cap = cap + caption.text + ' '
-        savename = self.file + '.txt'
-        location = os.path.join(self.Save, savename)
-        cap.strip('\n')
+        with YoutubeDL(ydl_opts) as ydl:
+            try:
+                ydl.download([self.url])
+            except Exception as e:
+                print(f"Error downloading video: {e}")
+
+    def read_caption_data(self):
         try:
-            os.remove(location)
-        except:
-            pass
-        f = open(location, 'a')
-        f.write(cap)
-        f.close
-        os.remove(self.Read)
-    #sends audio to googles speech recognition API
+            caption_text = ''
+            for caption in webvtt.read(self.read_caption):
+                caption_text += caption.text + ' '
+            self.text = caption_text
+        except Exception as e:
+            print(f"Error reading caption data: {e}")
 
-    def LargeAudioParse(self):
-        WholeText = ''
-        model = whisper.load_model('base.en')
-        try:        
-            result = model.transcribe(self.ReadAud)
-            text = result['text']
-        except:
-            pass
-            #print("Error", str(e))
+    def transcribe_audio(self):
+        
+        try:
+            model = whisper.load_model("base.en")
+
+            result = model.transcribe(self.read_audio)
+            text = result["text"].capitalize() + '.\n'
+            self.text = text
+        except Exception as e:
+            print(f"Error transcribing audio: {e}")
+
+    def write_to_database(self, user_id):
+        try:
+            uploaded_material = UploadedMaterial(
+                id=0,
+                content=self.text,
+                date_uploaded=datetime.now(),
+                user_id=user_id
+            )
+            id = self.upload_repository.add(uploaded_material)
+            return id
+        except Exception as e:
+            print(f"Error writing to database: {e}")
+
+    def process(self, user_id):
+        if os.path.exists(self.read_caption):
+            self.read_caption_data()
         else:
-            text = f'{text.capitalize()}.\n'
-            #print(chunk_filename, ':', text)
-            WholeText += text
-        self.text = WholeText
-        #return(WholeText)
+            print("No caption file found. Transcribing audio...")
+            self.download(caption_test=True) #self.flag
+            self.transcribe_audio()
 
-    def WriteToFile(self):
-        file = self.file + '.txt'
-        path = os.path.join(self.SaveAud, file)
-        f = open(path, 'a')
-        f.write(self.text)
-        f.close()
-        #shutil.rmtree(os.path.join(self.Read_Raw, 'AudioChunks'))
-        os.remove(self.ReadAud)
-
-    def Read_Captions(self):
-        if os.path.exists(self.Read) == True:
-            self.TryCaptionData()
-        elif self.Flag != 'True':
-            print("Reading caption data failed.")
-            print('Parsing audio this may take a while.')
-            self.Download(False)
-            self.LargeAudioParse()
-            self.WriteToFile()
-
-if __name__ =="__main__":
-    rawdata = input()
-    savedate = input()
-    Filename = input()
-    UrL = input()
-    start_time = time.time()
-    Test = YoutubeTranscribe(rawdata, savedate, Filename, UrL, False)
-    Test.Download()
-    Test.Read_Captions()
-    print("--- %s seconds ---" % (time.time() - start_time))
+        if self.text:
+            id = self.write_to_database(user_id)
+            return id
+        else:
+            print("No text available for writing to database.")

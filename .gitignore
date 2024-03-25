@@ -16,9 +16,6 @@ server/modules/data/wikiraw-data/*
 
 #Others
 .env
-WebPage
-ProjectReport.pdf
-SDI_Final_Presentation.pptx
 venv
 
 #Client 
