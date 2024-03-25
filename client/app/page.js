@@ -2,10 +2,12 @@ import './globals.css';
 import '@fontsource/roboto/400.css';
 import SideBar from '@/components/SideBar';
 import { Button, ButtonGroup, Divider } from '@mui/material';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonIcon from '@mui/icons-material/Person';
 export default function Home() {
 	return (
 		<div className='flex h-full'>
-			<div className='items-left justify-left md:w-[20%] sm:w-[30%]'>
+			<div className='h-[100%] items-left justify-left md:w-[20%] sm:w-[30%]'>
 				<SideBar />
 			</div>
 			<div className='flex flex-col w-full items-center mt-[17vh]'>
@@ -19,12 +21,14 @@ export default function Home() {
 				<div className='mt-7'>
 					<ButtonGroup className='gap-x-4'>
 						<Button
+							startIcon={<PersonAddIcon />}
 							variant='contained'
 							href='/Signup'
 							className='text-2xl'>
 							Sign Up
 						</Button>
 						<Button
+							startIcon={<PersonIcon />}
 							className='text-2xl'
 							variant='contained'
 							href='/Login'>
