@@ -9,13 +9,13 @@ export default function Home() {
 				<SideBar />
 			</div>
 			<div className='flex flex-col w-full items-center mt-[27vh]'>
-				<div className='flex text-5xl text-center'>
+				<div className='flex text-6xl text-center'>
 					Welcome to Genius Deck
 				</div>
 				<div className='flex mt-5 text-3xl text-center w-[50%] items-center justify-center'>
 					Revolutionizing student learning with AI generated flashcards
 				</div>
-				<div className='mt-5'>
+				<div className='mt-7'>
 					<ButtonGroup className='gap-x-4'>
 						<Button
 							variant='contained'
