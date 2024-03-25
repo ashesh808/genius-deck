@@ -8,7 +8,7 @@ import PageHeader from '../components/PageHeader'
 import WaitModal from "@/components/WaitModal";
 
 const filetypes = {
-  'text/txt': ['.txt'],
+  'text/plain': ['.txt'],
 }
 
 export default function UploadZoomTranscript () {
