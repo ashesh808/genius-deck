@@ -60,7 +60,7 @@ export default function SubmitFile () {
   return (
     <Box>
       <PageHeader title="Submit File" />
-      <Box style={{display: "flex", justifyContent: "center"}}>
+      <Box style={{display: "flex", alignItems: 'center', justifyContent: "center", flexDirection: 'column'}}>
         <UploadBox
           onSuccess={onSuccess}
           onError={()=>alert ("ERROR")}
@@ -68,24 +68,23 @@ export default function SubmitFile () {
           title="Upload a file"
           subtitle="Drag a file file here or click to browse"
         />
+        <Typography 
+          variant="h4"
+          style={{
+            marginTop: '1rem',
+            fontSize: '1.2rem',
+          }}>
+          Supported file types:
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          style={{
+            fontSize: '0.8rem',
+          }}
+        >
+          PDF, PPT/PPTX, TXT
+        </Typography>
       </Box>
-      <Typography 
-        variant="h4"
-        style={{
-          marginTop: '1rem',
-          fontSize: '1.2rem',
-        }}>
-        Supported file types:
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        style={{
-          fontSize: '0.8rem',
-        }}
-      >
-        PDF, PPT/PPTX, TXT
-      </Typography>
-      
 
       <WaitModal open={waiting} />
     </Box>

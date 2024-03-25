@@ -79,7 +79,7 @@ export default function SubmitLink () {
   return (
     <Box>
       <PageHeader title="Submit Link" />
-      <Box style={{display: "flex", alignItems: "center", flexDirection: "column", gap: "1rem"}}>
+      <Box style={{display: "flex", alignItems: 'center', justifyContent: "center", flexDirection: 'column'}}>
         <TextField
           id="submitlink"
           label="Submit Link"
@@ -101,26 +101,29 @@ export default function SubmitLink () {
           startIcon={<BackupIcon />}
           variant="contained"
           onClick={onSubmit}
+          style={{
+            marginTop: '1rem',
+          }}
         >
           Submit
         </Button>
+        <Typography 
+          variant="h4"
+          style={{
+            marginTop: '1rem',
+            fontSize: '1.2rem',
+          }}>
+          Supported link types:
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          style={{
+            fontSize: '0.8rem',
+          }}
+        >
+          YouTube, Wikipedia
+        </Typography>
       </Box>
-      <Typography 
-        variant="h4"
-        style={{
-          marginTop: '1rem',
-          fontSize: '1.2rem',
-        }}>
-        Supported link types:
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        style={{
-          fontSize: '0.8rem',
-        }}
-      >
-        YouTube, Wikipedia
-      </Typography>
 
       <WaitModal open={waiting} />
     </Box>
