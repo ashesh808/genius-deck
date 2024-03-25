@@ -19,7 +19,7 @@ const Signup = () => {
                 return window.alert("Please fill out all fields");
             }
             setIsLoading(true);
-            const res = await fetch("http://localhost:5000/login", {
+            const res = await fetch("http://localhost:5000/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
