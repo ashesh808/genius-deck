@@ -18,14 +18,14 @@ export default function WikipediaLink () {
 
     // Check if the URL is valid
     if (!regexPattern.test(urlText)) {
-      alert('Invalid YouTube URL')
+      alert('Invalid Wiki URL')
       setWaiting(false)
       return
     }
     
     try {
       // Upload data to server
-      const sendResponse = await fetch(`http://localhost:5000/sendyoutubeurl?url=${urlText}`, {
+      const sendResponse = await fetch(`http://localhost:5000/sendwikiurl?url=${urlText}`, {
         method: 'POST',
       });
       

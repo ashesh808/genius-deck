@@ -1,28 +1,35 @@
 import requests 
 from bs4 import BeautifulSoup 
-import os
+from datetime import datetime
+
+from modules.repositories.SqlAlchemyUserUploadedMaterials import SqlAlchemyUploadedMaterialRepository
+from modules.entities import UploadedMaterial
 
 class Wiki:
-    def __init__(self, url, wiki_path, file_name):
+    def __init__(self, url, session):
         self.url = url
-        self.wiki_path = os.path.join(wiki_path, file_name + '.txt')
+        self.upload_repository = SqlAlchemyUploadedMaterialRepository(session)
 
-    def parsing(self):
-    # Making a GET request 
-        r = requests.get(self.url) 
-        
-        # Parsing the HTML 
-        soup = BeautifulSoup(r.content, 'lxml') 
-        
-        s = soup.find('div', id='bodyContent') 
-        
-        lines = s.find_all('p') 
-        
-        f = open(self.wiki_path, 'ab')
-        for line in lines: 
-            txt = line.text
-            x = txt.encode()
-            f.write(x)
-            #print(line.text)
+    def parse(self, user_id):
+        try:
+            r = requests.get(self.url)
+            soup = BeautifulSoup(r.content, 'lxml')
+            body_content = soup.find('div', id='bodyContent')
+            paragraphs = body_content.find_all('p')
+            text = '\n'.join([p.text for p in paragraphs])
+            return self.write_to_database(text, user_id)
+        except Exception as e:
+            print(f"Error parsing webpage: {e}")
 
-        f.close()
+    def write_to_database(self, content, user_id):
+        try:
+            scraped_material = UploadedMaterial(
+                id=0,
+                content=content,
+                date_uploaded=datetime.now(),
+                user_id= user_id
+            )
+            id = self.upload_repository.add(scraped_material)
+            return id
+        except Exception as e:
+            print(f"Error writing to database: {e}")

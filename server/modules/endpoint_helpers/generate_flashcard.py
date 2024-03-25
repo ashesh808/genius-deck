@@ -23,22 +23,19 @@ class FlashCardGenerator:
             path = os.path.join(self.wiki_path, self.id + '.txt')
             data = open(path, 'r')
             self.parsed_data = data.read()    
-        elif(dataformat == "yt"):
-            txt_file_path = os.path.join(self.yt_path, self.id + ".txt")
-            if os.path.exists(txt_file_path):
-                with open(txt_file_path, 'r') as txt_file:
-                    parsed_data = txt_file.read()
-                self.parsed_data = parsed_data
-            else:
-                print("Error finding the txt file")    
         else:
             self.parsed_data = self.uploaded_material.content
             print(self.parsed_data)
 
-    def batch_strings(self):
+    def batch_strings(self, max_tokens=16000):
         if self.parsed_data is not None:
-            max_length = 4000
-            substrings = [self.parsed_data[i:i + max_length] for i in range(0, len(self.parsed_data), max_length)]
+            substrings = []
+            start = 0
+            end = max_tokens
+            while start < len(self.parsed_data):
+                substrings.append(self.parsed_data[start:end])
+                start = end
+                end = min(start + max_tokens, len(self.parsed_data))
             return substrings
         else:
             raise ValueError("No data available. Call ReadData first to parse data.")
@@ -48,6 +45,8 @@ class FlashCardGenerator:
         for flashcard in flashcards:
             flashcard_id = self.flashcard_repository.add(flashcard)
             flashcard_ids.append(flashcard_id)
+        self.flashcard_repository.commit()
+        print("Flashcards commited to db")
         return flashcard_ids
     
     def parse_string_to_flashcards(self, input_string):

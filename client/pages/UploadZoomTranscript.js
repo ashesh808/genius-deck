@@ -8,7 +8,7 @@ import PageHeader from '../components/PageHeader'
 import WaitModal from "@/components/WaitModal";
 
 const filetypes = {
-  'text/vtt': ['.vtt'],
+  'text/plain': ['.txt'],
 }
 
 export default function UploadZoomTranscript () {
@@ -62,7 +62,7 @@ export default function UploadZoomTranscript () {
           onError={()=>alert ("ERROR")}
           acceptedTypes={filetypes}
           title="Upload a Zoom Transcript"
-          subtitle="Drag a VTT file here or click to browse"
+          subtitle="Drag a txt file here or click to browse"
         />
       </Box>
 
