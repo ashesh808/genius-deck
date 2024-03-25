@@ -10,7 +10,7 @@ export default function Home() {
 			<div className='h-[100%] items-left justify-left md:w-[20%] sm:w-[30%]'>
 				<SideBar />
 			</div>
-			<div className='flex flex-col w-full items-center mt-[17vh]'>
+			<div className='flex flex-col w-full items-center mt-[15vh]'>
 				<div className='flex text-6xl text-center'>
 					Welcome to Genius Deck
 				</div>

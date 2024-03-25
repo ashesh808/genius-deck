@@ -58,36 +58,41 @@ export default function SubmitFile () {
   }
 
   return (
-    <Box>
-      <PageHeader title="Submit File" />
-      <Box style={{display: "flex", justifyContent: "center"}}>
-        <UploadBox
-          onSuccess={onSuccess}
-          onError={()=>alert ("ERROR")}
-          acceptedTypes={filetypes}
-          title="Upload a file"
-          subtitle="Drag a file file here or click to browse"
-        />
-      </Box>
-      <Typography 
-        variant="h4"
-        style={{
-          marginTop: '1rem',
-          fontSize: '1.2rem',
-        }}>
-        Supported file types:
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        style={{
-          fontSize: '0.8rem',
-        }}
-      >
-        PDF, PPT/PPTX, TXT
-      </Typography>
-      
+		<Box>
+			<PageHeader title='Submit File' />
+			<Box style={{ display: 'flex', justifyContent: 'center' }}>
+				<UploadBox
+					onSuccess={onSuccess}
+					onError={() => alert('ERROR')}
+					acceptedTypes={filetypes}
+					title='Upload a file'
+					subtitle='Drag a file file here or click to browse'
+				/>
+			</Box>
+			<Typography
+				variant='h4'
+				style={{
+					marginTop: '1rem',
+					fontSize: '1.2rem',
+					display: 'flex',
+					textAlign: 'center',
+                    flexDirection: 'column',
+                    marginTop: '2%',
+				}}>
+				Supported file types:
+			</Typography>
+			<Typography
+				variant='subtitle1'
+				style={{
+					fontSize: '0.8rem',
+					display: 'flex',
+					textAlign: 'center',
+					flexDirection: 'column',
+				}}>
+				PDF, PPT/PPTX, TXT
+			</Typography>
 
-      <WaitModal open={waiting} />
-    </Box>
+			<WaitModal open={waiting} />
+		</Box>
   );
 }

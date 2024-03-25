@@ -77,52 +77,65 @@ export default function SubmitLink () {
   }
   
   return (
-    <Box>
-      <PageHeader title="Submit Link" />
-      <Box style={{display: "flex", alignItems: "center", flexDirection: "column", gap: "1rem"}}>
-        <TextField
-          id="submitlink"
-          label="Submit Link"
-          variant="outlined"
-          fullWidth
-          autoFocus
-          onChange={(event)=>setUrlText(event.target.value)}
-          onKeyPress={(event) => {if (event.key=='Enter') onSubmit()}}
-          style={{maxWidth: "30rem"}}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <AddLinkIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
-        <Button
-          startIcon={<BackupIcon />}
-          variant="contained"
-          onClick={onSubmit}
-        >
-          Submit
-        </Button>
-      </Box>
-      <Typography 
-        variant="h4"
-        style={{
-          marginTop: '1rem',
-          fontSize: '1.2rem',
-        }}>
-        Supported link types:
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        style={{
-          fontSize: '0.8rem',
-        }}
-      >
-        YouTube, Wikipedia
-      </Typography>
+		<Box>
+			<PageHeader title='Submit Link' />
+			<Box
+				style={{
+					display: 'flex',
+					alignItems: 'center',
+					flexDirection: 'column',
+					gap: '1rem',
+				}}>
+				<TextField
+					id='submitlink'
+					label='Submit Link'
+					variant='outlined'
+					fullWidth
+					autoFocus
+					onChange={(event) => setUrlText(event.target.value)}
+					onKeyPress={(event) => {
+						if (event.key == 'Enter') onSubmit();
+					}}
+					style={{ maxWidth: '30rem' }}
+					InputProps={{
+						startAdornment: (
+							<InputAdornment position='start'>
+								<AddLinkIcon />
+							</InputAdornment>
+						),
+					}}
+				/>
+				<Button
+					startIcon={<BackupIcon />}
+					variant='contained'
+					onClick={onSubmit}>
+					Submit
+				</Button>
+			</Box>
+			<Typography
+				variant='h4'
+				style={{
+					marginTop: '1rem',
+					fontSize: '1.2rem',
+					display: 'flex',
+					textAlign: 'center',
+					flexDirection: 'column',
+					marginTop: '2%',
+				}}>
+				Supported link types:
+			</Typography>
+			<Typography
+				variant='subtitle1'
+				style={{
+					fontSize: '0.8rem',
+					display: 'flex',
+					textAlign: 'center',
+					flexDirection: 'column',
+				}}>
+				YouTube, Wikipedia
+			</Typography>
 
-      <WaitModal open={waiting} />
-    </Box>
+			<WaitModal open={waiting} />
+		</Box>
   );
 }
