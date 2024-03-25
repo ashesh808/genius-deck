@@ -1,33 +1,54 @@
-import { Box, Grid, Typography } from "@mui/material"
-import CssBaseline from '@mui/material/CssBaseline';
-import PageHeader from '../components/PageHeader'
-import SideBar from "@/components/SideBar";
-
-let style = {
-  display: "flex",
-  minHeight: "100vh",
-  flexDirection: "column",
-  justifyContent: "space-between"
-}
-
+import './globals.css';
+import '@fontsource/roboto/400.css';
+import SideBar from '@/components/SideBar';
+import { Button, ButtonGroup, Divider } from '@mui/material';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonIcon from '@mui/icons-material/Person';
 export default function Home() {
-  return (
-    <Box style={style}>
-      <CssBaseline />
-      <Grid container spacing={0} style={{height: "100vh"}}>
-        <Grid item xs={3} md={2}>
-          <SideBar />
-        </Grid>
-        <Grid item xs={9} md={10}>
-          <Box sx={{padding: "1rem"}}>
-            {/* Content goes here */}
-            <PageHeader title="Welcome!" />
-            <Typography align="center" variant="body1">
-              Please selection an option on the left to begin!
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-    </Box>
-  )
+	return (
+		<div className='flex h-full'>
+			<div className='h-[100%] items-left justify-left md:w-[20%] sm:w-[30%]'>
+				<SideBar />
+			</div>
+			<div className='flex flex-col w-full items-center mt-[17vh]'>
+				<div className='flex text-6xl text-center'>
+					Welcome to Genius Deck
+				</div>
+				<div className='flex mt-5 text-3xl text-center w-[50%] items-center justify-center'>
+					Revolutionizing student learning with AI generated
+					flashcards
+				</div>
+				<div className='mt-7'>
+					<ButtonGroup className='gap-x-4'>
+						<Button
+							startIcon={<PersonAddIcon />}
+							variant='contained'
+							href='/Signup'
+							className='text-2xl'>
+							Sign Up
+						</Button>
+						<Button
+							startIcon={<PersonIcon />}
+							className='text-2xl'
+							variant='contained'
+							href='/Login'>
+							Sign In
+						</Button>
+					</ButtonGroup>
+				</div>
+				<Divider className='mt-[5vh] w-[80%]' />
+				<div className='text-5xl mt-[5vh]'>Here is how it works!</div>
+				<div className='mt-9'>
+					<iframe
+						width='800'
+						height='504'
+						src={
+							'https://www.youtube.com/embed/VhDkrxmsLAY?si=V3I6KIachvWubPjr&mute=1&vq=hd72'
+						}
+						allowFullScreen
+					/>
+				</div>
+			</div>
+		</div>
+	);
 }
