@@ -1,17 +1,20 @@
 'use client'
 
 import React from "react";
-import { Box, Paper, Typography, Input, IconButton } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useRouter } from 'next/router'
 import UploadBox from '../components/UploadBox'
 import PageHeader from '../components/PageHeader'
 import WaitModal from "@/components/WaitModal";
 
 const filetypes = {
+  'application/pdf': ['.pdf'],
+  // 'application/vnd.ms-powerpoint': ['.ppt'],
+  'application/vnd.openxmlformats-officedocument.presentationml.presentation': ['.pptx'],
   'text/plain': ['.txt'],
 }
 
-export default function UploadZoomTranscript () {
+export default function SubmitFile () {
   const router = useRouter()
   const [waiting, setWaiting] = React.useState(false)
 
@@ -22,6 +25,7 @@ export default function UploadZoomTranscript () {
       // Generate form data
       const formData = new FormData();
       formData.append('file', uploadedFile);
+      const fileType = uploadedFile.name.split(".").slice(1).pop()
 
       // Upload data to server
       const uploadResponse = await fetch('http://localhost:5000/upload', {
@@ -31,7 +35,7 @@ export default function UploadZoomTranscript () {
             
       // Tell server to generate flashcards for the uploaded document
       const {id: documentID} = await uploadResponse.json()
-      const generateResponse = await fetch(`http://localhost:5000/generatecards?id=${documentID}&dataformat=pdf`, {
+      const generateResponse = await fetch(`http://localhost:5000/generatecards?id=${documentID}&dataformat=${fileType}`, {
         method: 'GET',
       })
 
@@ -55,16 +59,33 @@ export default function UploadZoomTranscript () {
 
   return (
     <Box>
-      <PageHeader title="Upload Zoom Trancript" />
+      <PageHeader title="Submit File" />
       <Box style={{display: "flex", justifyContent: "center"}}>
         <UploadBox
           onSuccess={onSuccess}
           onError={()=>alert ("ERROR")}
           acceptedTypes={filetypes}
-          title="Upload a Zoom Transcript"
-          subtitle="Drag a txt file here or click to browse"
+          title="Upload a file"
+          subtitle="Drag a file file here or click to browse"
         />
       </Box>
+      <Typography 
+        variant="h4"
+        style={{
+          marginTop: '1rem',
+          fontSize: '1.2rem',
+        }}>
+        Supported file types:
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        style={{
+          fontSize: '0.8rem',
+        }}
+      >
+        PDF, PPT/PPTX, TXT
+      </Typography>
+      
 
       <WaitModal open={waiting} />
     </Box>

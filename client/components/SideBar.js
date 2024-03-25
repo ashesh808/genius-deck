@@ -1,11 +1,8 @@
 import React from 'react';
 import { Box, Paper, Grid, Button, Typography } from '@mui/material';
 import Link from 'next/link';
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import CoPresentIcon from '@mui/icons-material/CoPresent';
-import MicIcon from '@mui/icons-material/Mic';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import AddLinkIcon from '@mui/icons-material/AddLink';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 import SearchIcon from '@mui/icons-material/Search';
 import SchoolTwoToneIcon from '@mui/icons-material/SchoolTwoTone';
@@ -14,29 +11,14 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 
 const sideBarData = [
   {
-    title: 'Upload PDF',
-    icon: PictureAsPdfIcon,
-    url: '/UploadPDF',
+    title: 'Submit File',
+    icon: CloudUploadIcon,
+    url: '/SubmitFile',
   },
   {
-    title: 'Upload PPT',
-    icon: CoPresentIcon,
-    url: '/UploadPPT',
-  },
-  {
-    title: 'Upload Transcript',
-    icon: MicIcon,
-    url: '/UploadZoomTranscript',
-  },
-  {
-    title: 'YouTube Link',
-    icon: YouTubeIcon,
-    url: '/YouTubeLink',
-  },
-  {
-    title: 'Wikipedia Link',
-    icon: MenuBookIcon,
-    url: '/WikipediaLink',
+    title: 'Submit Link',
+    icon: AddLinkIcon,
+    url: '/SubmitLink',
   },
   {
     title: 'Card Data',
