@@ -20,29 +20,28 @@ export default function Home() {
 					<ButtonGroup className='gap-x-4'>
 						<Button
 							variant='contained'
-							href='/SignUp'
+							href='/Signup'
 							className='text-2xl'>
 							Sign Up
 						</Button>
 						<Button
 							className='text-2xl'
 							variant='contained'
-							href='/SignIn'>
+							href='/Login'>
 							Sign In
 						</Button>
-                    </ButtonGroup>
+					</ButtonGroup>
 				</div>
-                    <Divider className='mt-[5vh] w-[80%]' />
+				<Divider className='mt-[5vh] w-[80%]' />
 				<div className='text-5xl mt-[5vh]'>Here is how it works!</div>
 				<div className='mt-9'>
 					<iframe
 						width='800'
 						height='504'
 						src={
-							'https://www.youtube.com/embed/VhDkrxmsLAY?si=V3I6KIachvWubPjr&mute=1'
+							'https://www.youtube.com/embed/VhDkrxmsLAY?si=V3I6KIachvWubPjr&mute=1&vq=hd72'
 						}
 						allowFullScreen
-						muted
 					/>
 				</div>
 			</div>
