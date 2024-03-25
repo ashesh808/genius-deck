@@ -15,7 +15,7 @@ class YoutubeTranscribe:
         self.save_data_path = save_data_path
         self.audio_ext = f"{file_name}.wav"
         self.read_audio = os.path.join(raw_data_path, self.audio_ext)
-        self.caption_ext = f"{file_name}.en-uYU-mmqFLq8.vtt"
+        self.caption_ext = f"{file_name}.en.vtt"
         self.read_caption = os.path.join(raw_data_path, self.caption_ext)
         self.upload_repository = SqlAlchemyUploadedMaterialRepository(session)
         self.flag = flag
@@ -53,8 +53,10 @@ class YoutubeTranscribe:
             print(f"Error reading caption data: {e}")
 
     def transcribe_audio(self):
+        
         try:
             model = whisper.load_model("base.en")
+
             result = model.transcribe(self.read_audio)
             text = result["text"].capitalize() + '.\n'
             self.text = text
