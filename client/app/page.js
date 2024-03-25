@@ -1,19 +1,20 @@
 import './globals.css';
-import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
 import SideBar from '@/components/SideBar';
-import { Button, ButtonGroup } from '@mui/material';
+import { Button, ButtonGroup, Divider } from '@mui/material';
 export default function Home() {
 	return (
 		<div className='flex h-full'>
 			<div className='items-left justify-left md:w-[20%] sm:w-[30%]'>
 				<SideBar />
 			</div>
-			<div className='flex flex-col w-full items-center mt-[27vh]'>
+			<div className='flex flex-col w-full items-center mt-[23vh]'>
 				<div className='flex text-6xl text-center'>
 					Welcome to Genius Deck
 				</div>
 				<div className='flex mt-5 text-3xl text-center w-[50%] items-center justify-center'>
-					Revolutionizing student learning with AI generated flashcards
+					Revolutionizing student learning with AI generated
+					flashcards
 				</div>
 				<div className='mt-7'>
 					<ButtonGroup className='gap-x-4'>
@@ -29,7 +30,20 @@ export default function Home() {
 							href='/SignIn'>
 							Sign In
 						</Button>
-					</ButtonGroup>
+                    </ButtonGroup>
+				</div>
+                    <Divider className='mt-[5vh] w-[80%]' />
+				<div className='text-5xl mt-[5vh]'>Here is how it works!</div>
+				<div className='mt-9'>
+					<iframe
+						width='800'
+						height='504'
+						src={
+							'https://www.youtube.com/embed/VhDkrxmsLAY?si=V3I6KIachvWubPjr&mute=1'
+						}
+						allowFullScreen
+						muted
+					/>
 				</div>
 			</div>
 		</div>
