@@ -16,25 +16,6 @@ import SpeakContent from "../../components/SpeakContent";
 import PageHeader from "../../components/PageHeader";
 import DownloadIcon from "@mui/icons-material/Download";
 
-//put If subDir is JSON like Flashcards/JSON then get the query data and parse it
-
-// const testFlashcards = [
-//     {
-//         question: "What is the capital of France?",
-//         answer: "Paris",
-//         explanation: "Paris is the capital of France",
-//     },
-//     {
-//         question: "What is the capital of Spain?",
-//         answer: "Madrid",
-//     },
-//     {
-//         question: "What is the capital of Germany?",
-//         answer: "Berlin",
-//         explanation: "Berlin is the capital of Germany",
-//     },
-// ];
-
 export default function Flashcards() {
     const [currentPage, setCurrentPage] = useState(1);
     const [shuffledCards, setShuffledCards] = useState([]);

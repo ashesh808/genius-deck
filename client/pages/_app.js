@@ -16,7 +16,7 @@ export default function MyApp ({ Component, pageProps }) {
       <Grid container spacing={0} style={{height: "100vh"}}>
         <Grid item xs={3} md={2}>
           <SideBar />
-        </Grid>
+              </Grid>
         <Grid item xs={9} md={10}>
           <Box sx={{padding: "1rem"}}>
             {/* Content goes here */}
