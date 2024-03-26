@@ -115,7 +115,7 @@ export default function SubmitFile () {
             fontSize: '0.8rem',
           }}
         >
-          PDF, PPT/PPTX, TXT
+          PDF, PPTX, TXT
         </Typography>
       </Box>
 
