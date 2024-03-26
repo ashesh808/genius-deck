@@ -11,6 +11,7 @@ const Login = () => {
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
+            //check for empty fields
             if (!username || !password) {
                 return window.alert("Please fill out all fields");
             }
