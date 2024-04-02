@@ -89,7 +89,7 @@ export default function SubmitFile () {
 					textAlign: 'center',
 					flexDirection: 'column',
 				}}>
-				PDF, PPT/PPTX, TXT
+				PDF, PPTX, TXT
 			</Typography>
 
 
