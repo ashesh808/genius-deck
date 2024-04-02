@@ -18,3 +18,4 @@ torch == 2.2.1
 salesforce-lavis 
 python-pptx
 whisper == 1.1.10
+pyscope
