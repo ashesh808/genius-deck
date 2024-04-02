@@ -2,7 +2,9 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import os
+import os, time
+import random
+
 
 from modules.endpoint_helpers.file_uploader import FileUploader
 from modules.endpoint_helpers.generate_flashcard import FlashCardGenerator
@@ -75,6 +77,7 @@ def generate_flashcards():
     flashcard_generator.ReadData(dataformat)
     flashcard_generator.batch_strings()
     response = flashcard_generator.send_query()
+    time.sleep(5)
     print(response)
     return jsonify({'id': id})
 

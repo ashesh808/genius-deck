@@ -1,6 +1,6 @@
 # GeniusDeck
 
-An AI-powered flashcard study tool made in 48 hours for the Fall 2023 Hackathon
+An AI-powered flashcard study tool originally made in 48 hours for the Fall 2023 Hackathon and improved for MICS 2024.
 
 It can process PDF files and YouTube links into flashcards for studying using GPT-3.5. Users can also download their flashcard data and access it later by uploading it back onto the website.
 

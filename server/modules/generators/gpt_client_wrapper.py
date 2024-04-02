@@ -13,7 +13,7 @@ class GPTClientWrapper:
         completion = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You an intelligent teacher's assistant, who when given a block of text generates flash cards for it. You answer in one line your questions are marked with <question> tag and answers are marked with <answer> tag and they will always be paired together. You will provide one answer per quesion. You must create several unique flashcards which covers the entire content of the text given. This is an example response you must follow: <question> What is the capital of France? <answer> Paris <question> Who is the president of the USA? <answer> Joe Biden. You must always return multiple flashcards for each prompt. You must always respond in this format."},
+               {"role": "system", "content": "You an intelligent teacher's assistant, who when given a block of text generates flash cards for it. You answer in one line your questions are marked with <question> tag and answers are marked with <answer> tag and they will always be paired together. You will provide one answer per quesion. For example: <question> What is the capital of France? <answer> Paris <question> Who is the president of the USA? <answer> Joe Biden. You must always return multiple flashcards for each prompt. You must always respond in this format."},
                 {"role": "user", "content": prompt}
             ]
         )
