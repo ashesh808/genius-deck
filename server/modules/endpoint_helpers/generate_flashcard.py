@@ -70,14 +70,36 @@ class FlashCardGenerator:
                 )
                 flashcards.append(flashcard)
         return flashcards
-
-    def send_query(self):
+    
+    def check_response_format(self, response):
+        parts = response.split("<question>")
+        # Check if there are at least two parts (question and answer)
+        if len(parts) < 2:
+            return False
+        for part in parts[1:]:
+            if "<answer>" not in part:
+                return False
+        return True
+    
+    def send_query(self, max_retries=5):
         gpt_wrapper = GPTClientWrapper()
         substrings = self.batch_strings()
         all_responses = []
-        for i, substring in enumerate(substrings):
-            gptResponse = gpt_wrapper.get_flashcards_with_tags(substring)
-            print(gptResponse)
-            flashcards = self.parse_string_to_flashcards(gptResponse)
-            all_responses.extend(flashcards)
-            self.save_flashcards_to_db(all_responses)
+        retries = 0
+        
+        while retries < max_retries:
+            for i, substring in enumerate(substrings):
+                gptResponse = gpt_wrapper.get_flashcards_with_tags(substring)
+                print("Received response:", gptResponse)
+                if self.check_response_format(gptResponse):
+                    flashcards = self.parse_string_to_flashcards(gptResponse)
+                    all_responses.extend(flashcards)
+                    retries = max_retries  # Exit the while loop if format is correct
+                    break
+                else:
+                    retries += 1
+                    print("Response format incorrect. Retrying... Attempt:", retries)
+                    if retries >= max_retries:
+                        print("Maximum retries reached. Exiting.")
+                        return
+        self.save_flashcards_to_db(all_responses)

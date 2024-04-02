@@ -5,15 +5,18 @@ from sqlalchemy.orm import sessionmaker
 import os, time
 import random
 
+
 from modules.endpoint_helpers.file_uploader import FileUploader
 from modules.endpoint_helpers.generate_flashcard import FlashCardGenerator
 from modules.endpoint_helpers.flashcard_viewer import FlashCardViewer
 from modules.endpoint_helpers.YouTubeTrancsribe import YoutubeTranscribe
 from modules.endpoint_helpers.webpage import Wiki
+from modules.endpoint_helpers.login_manager import LoginManager
 
 
 app = Flask(__name__)
-    
+login_manager = LoginManager(app)
+
 CORS(app)
 
 #This is the folder where pdf will be downloaded to 
@@ -88,6 +91,15 @@ def get_flashcard_data():
 @app.route('/browse', methods=['GET'])
 def get_all_flashcards():
     return flashcard_viewer.ViewAllFlashCards()
+
+@app.route('/login', methods=['POST'])
+def login():
+    user_id = 1 
+    login_manager.login(user_id)
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    login_manager.logout()
 
 if __name__ == '__main__':
     app.run(debug=True)
