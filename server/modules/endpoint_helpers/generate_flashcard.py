@@ -19,23 +19,13 @@ class FlashCardGenerator:
         self.uploaded_material = self.uploaded_material_repository.get(self.id)
 
     def ReadData(self, dataformat):
-        if(dataformat == "wiki"):
-            path = os.path.join(self.wiki_path, self.id + '.txt')
-            data = open(path, 'r')
-            self.parsed_data = data.read()    
-        else:
             self.parsed_data = self.uploaded_material.content
             print(self.parsed_data)
 
-    def batch_strings(self, max_tokens=16000):
+    def batch_strings(self):
         if self.parsed_data is not None:
-            substrings = []
-            start = 0
-            end = max_tokens
-            while start < len(self.parsed_data):
-                substrings.append(self.parsed_data[start:end])
-                start = end
-                end = min(start + max_tokens, len(self.parsed_data))
+            max_length = 8000
+            substrings = [self.parsed_data[i:i + max_length] for i in range(0, len(self.parsed_data), max_length)]
             return substrings
         else:
             raise ValueError("No data available. Call ReadData first to parse data.")
@@ -85,21 +75,20 @@ class FlashCardGenerator:
         gpt_wrapper = GPTClientWrapper()
         substrings = self.batch_strings()
         all_responses = []
-        retries = 0
-        
-        while retries < max_retries:
-            for i, substring in enumerate(substrings):
+        for substring in substrings:
+            retries = 0
+            while retries < max_retries:
                 gptResponse = gpt_wrapper.get_flashcards_with_tags(substring)
                 print("Received response:", gptResponse)
                 if self.check_response_format(gptResponse):
                     flashcards = self.parse_string_to_flashcards(gptResponse)
                     all_responses.extend(flashcards)
-                    retries = max_retries  # Exit the while loop if format is correct
                     break
                 else:
                     retries += 1
                     print("Response format incorrect. Retrying... Attempt:", retries)
                     if retries >= max_retries:
-                        print("Maximum retries reached. Exiting.")
-                        return
+                        print("Maximum retries reached for this substring.")
+                        break
         self.save_flashcards_to_db(all_responses)
+
